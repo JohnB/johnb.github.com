@@ -1,0 +1,10 @@
+---
+layout: post
+title: this is a test blog post
+---
+
+h1. {{ page.title }}
+
+p(meta). 13 Dec 2000 - In my mind
+
+blah. Lorem ipsum junk woo hoo jekyll really works.
