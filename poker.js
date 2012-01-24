@@ -31,13 +31,12 @@ var Poker = {
           player+"&nbsp;<span id='chips_for_"+player+"'></span></a></li>";
       $('#players_to_choose_from').append(add_element);
       $('#players_list').append(update_element);
-      $('#'+add_player).click(   function(event) { Poker.select_player($(event.currentTarget)); });
-      $('#'+update_player).click(function(event) { Poker.select_player($(event.currentTarget)); });
+      $('#'+add_player).click(   function(event) { Poker.select_player(player); });
+      $('#'+update_player).click(function(event) { Poker.select_player(player); });
     });
 
     // Attach save_player to the #save_player element
     $('#save_player').click( function() {Poker.save_player();});
-
   },
 
   save_setup_data: function() {
@@ -45,8 +44,8 @@ var Poker = {
     Poker.num_players = parseInt($('#players_slider').val());
   },
 
-  select_player: function(element) {
-    Poker.current_player = element.html();
+  select_player: function(player) {
+    Poker.current_player = player;
     $('#chips_for_player').html('Chips for '+Poker.current_player);
     if(Poker.players[Poker.current_player]) {
       $('#chip_count').val(''+Poker.players[Poker.current_player]);
