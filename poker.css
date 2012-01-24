@@ -1,8 +1,9 @@
 
-#players_to_choose_from span {
+#players_to_choose_from a {
   /* TODO: apply some of the 'button' styling from jquery mobile. */
   border: 1px solid;
   padding: 5px 2px 1px 2px;
   margin: 3px;
+  clear: both;
 }
 

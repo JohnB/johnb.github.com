@@ -22,14 +22,17 @@ var Poker = {
     // Attach save_setup_data to the #save_setup_data element
     $('#save_setup_data').click( function() {Poker.save_setup_data();});
 
-    // Create list of "buttons" in the #players_to_choose_from span
-    //   - attach select_player to each of the added players
-    // TODO: make it dynamic like the comment above says it should be.
-    $(".player").click(function(event) {
-      console.log(event)
-      console.log(event.currentTarget)
-      Poker.select_player($(event.currentTarget));
-      window.location = "#chip_value_page"
+    // Create list of add and update "buttons" for each player.
+    Poker.usual_suspects.forEach( function(player) {
+      var add_player     = "add_"+player;
+      var update_player  = "update_"+player;
+      var add_element    = "<a href='#chip_value_page' id='"+add_player+"'>"+player+"</a>";
+      var update_element = "<li style='display: none'><a href='#chip_value_page' id='"+update_player+"'>"+
+          player+"&nbsp;<span id='chips_for_"+player+"'></span></a></li>";
+      $('#players_to_choose_from').append(add_element);
+      $('#players_list').append(update_element);
+      $('#'+add_player).click(   function(event) { Poker.select_player($(event.currentTarget)); });
+      $('#'+update_player).click(function(event) { Poker.select_player($(event.currentTarget)); });
     });
 
     // Attach save_player to the #save_player element
@@ -45,19 +48,22 @@ var Poker = {
   select_player: function(element) {
     Poker.current_player = element.html();
     $('#chips_for_player').html('Chips for '+Poker.current_player);
-    $('#chip_count').val(Poker.players[Poker.current_player]);
-    element.hide();
-    // add to players list
-    var html = "<li><a href='#chip_value_page' id='"+Poker.current_player+"'>"+Poker.current_player+"</li>";
-    $('#players_list').append(html);
+    if(Poker.players[Poker.current_player]) {
+      $('#chip_count').val(''+Poker.players[Poker.current_player]);
+    } else {
+      $('#chip_count').val('');
+    }
   },
 
   save_player: function() {
     var chips = $('#chip_count').val();
     var chip_value = parseFloat(chips);
-    Poker.current_player[Poker.current_player] = chip_value;
-    // update players list with $$$
-    $('#'+Poker.current_player).html(Poker.current_player+" $"+chips);
+    if( !isNaN(chip_value) ) {
+      Poker.players[Poker.current_player] = chip_value;
+      $('#update_'+Poker.current_player).parent().show();
+      $('#chips_for_'+Poker.current_player).html("$"+chips);
+      $('#add_'+Poker.current_player).hide();
+    }
   },
 
   update_results: function(rounding_amount) {
