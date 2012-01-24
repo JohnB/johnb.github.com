@@ -42,16 +42,13 @@
 
 <div data-role="page" class="type-interior" id="player_page">
   <div data-role="content" data-theme="e">
-    <!--
-    <ul data-role="listview" data-inset="true">
-	    <li><a href="#" style='display: none'>Acura</a></li>
-    </ul>
-    -->
-    <ul data-role="listview" data-inset="true" id="players_list">
-      <li><a href="#">VW</a></li>
-    </ul>
-    <span id='players_to_choose_from' data-transition="slide" >
-    </span>
+    <ul id="players_list"
+        class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+        data-inset="true"
+        data-role="listview">
+     </ul>
+    <div id='players_to_choose_from' data-transition="slide" style="width: 300px; ">
+    </div>
     <div data-role="controlgroup" data-type="horizontal">
       <a href="#intro_page" data-role="button" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
       <a href="#results_page" data-role="button" data-icon="arrow-r" data-theme="b" >Next</a>
@@ -85,7 +82,14 @@
       <a href="#" data-role="button" data-theme="b" id="one_dollar">$1</a>
       <a href="#" data-role="button" data-theme="b" id="five_dollars">$5</a>
     </div>
-    <div id="payout_container">-results-here-</div>
+    <table id="payout_container">
+      <tr>
+        <th>Player</th>
+        <th>Exact</th>
+        <th>$1</th>
+        <th>$5</th>
+      </tr>
+    </table>
     <div data-role="controlgroup" data-type="horizontal">
       <a href="#player_page" data-role="button" data-transition="slide" data-direction="reverse" 
          data-icon="arrow-l">Back</a>
