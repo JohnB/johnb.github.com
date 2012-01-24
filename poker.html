@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery Mobile Docs - Anatomy of a Page</title>
+  <link rel="stylesheet" href="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css"/>
+  <badlink rel="stylesheet" href="../_assets/css/jqm-docs.css"/>
+  <script src="//code.jquery.com/jquery-1.6.4.js"></script>
+  <badscript src="../../experiments/themeswitcher/jquery.mobile.themeswitcher.js"></script>
+  <badscript src="../_assets/js/jqm-docs.js"></script>
+  <script src="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+
+  <link rel="stylesheet" href="poker.css"/>
+  <script src="poker.js"></script>
+</head>
+<body data-theme="e" style="background-color: #87cefa;">
+
+<div data-role="page" class="type-interior" id="intro_page">
+  <div data-role="header" data-theme="e">
+    <h1>Poker Calculator</h1>
+  </div>
+  <div data-role="content" data-theme="e">
+    <h2>Setup</h2>
+
+    <form>
+      <label for="date_entry" Date:</label>
+      <input type="text" id="date_entry" value="-todays-date-here-" disabled="disabled""/>
+      <p></p>
+      <label for="buy_in_slider">Buy-in:</label>
+      <input type="range" name="buy_in_slider" id="buy_in_slider" value="25" min="0" max="100" />
+
+      <p></p>
+      <label for="players_slider">Players:</label>
+      <input type="range" name="players_slider" id="players_slider" value="7" min="4" max="10" />
+    </form>
+    <div data-role="controlgroup" data-type="horizontal">
+      <a href="#player_page" data-role="button" data-icon="arrow-r" data-theme="b" id="save_setup_data">Next</a>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" class="type-interior" id="player_page">
+  <div data-role="content" data-theme="e">
+    <ul data-role="listview" data-inset="true" id="players_list">
+    </ul>
+    <span id='players_to_choose_from'>
+      <span class="ui-btn-inner ui-corner-left ui-corner-right">DavidR</span>
+      <span class="ui-btn-inner ui-corner-left ui-corner-right">DavidW</span>
+      <span class="ui-btn-inner ui-corner-left ui-corner-right">EJH</span>
+      <span class="ui-btn-inner ui-corner-left ui-corner-right-inner ui-corner-left ui-corner-right">GordonC</span>
+      <span class="ui-btn-inner ui-corner-left ui-corner-right">HughB</span>
+      <span class="ui-btn-inner ui-corner-left ui-corner-right">JayN</span>
+      <span class="player" data-transition="slide" data-direction="reverse">JohnB</span>
+      <span class="player" data-transition="slide" data-direction="reverse">MarkF</span>
+      <span class="player" data-transition="slide" data-direction="reverse">OtisW</span>
+      <span class="player" data-transition="slide" data-direction="reverse">SteveF</span>
+    </span>
+    <div data-role="controlgroup" data-type="horizontal">
+      <a href="#intro_page" data-role="button" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
+      <a href="#results_page" data-role="button" data-icon="arrow-r" data-theme="b" >Next</a>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" class="type-interior" id="chip_value_page">
+  <div data-role="header" data-theme="e">
+    <h1>Poker Calculator</h1>
+  </div>
+  <div data-role="content" data-theme="e">
+    <label for="chip_count_input"><span id='chips_for_player'></span></label>
+    <input type="number" name="chip_count_input" id="chip_count" value=""/>
+    <div data-role="controlgroup" data-type="horizontal">
+      <a href="#player_page" data-role="button" data-transition="slide" data-direction="reverse"
+         data-theme="b" id="save_player">Done</a>
+    </div>
+  </div>
+</div>
+
+</div>
+<div data-role="page" class="type-interior" id="results_page">
+  <div data-role="header" data-theme="e">
+    <h1>Poker Calculator</h1>
+  </div>
+  <div data-role="content" data-theme="e">
+    <h2>Results</h2>
+
+    <div data-role="controlgroup" data-type="horizontal">
+      <a href="#" data-role="button" data-theme="b" id="one_dollar">$1</a>
+      <a href="#" data-role="button" data-theme="b" id="five_dollars">$5</a>
+    </div>
+    <div id="payout_container">-results-here-</div>
+    <div data-role="controlgroup" data-type="horizontal">
+      <a href="#player_page" data-role="button" data-transition="slide" data-direction="reverse" 
+         data-icon="arrow-l">Back</a>
+      <a href="mailto:john.baylor@gmail.com?subject=test&body=foo%20bar" data-role="button" data-theme="b" >Email</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
