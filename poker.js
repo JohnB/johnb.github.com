@@ -21,25 +21,10 @@ var Poker = {
     // Create list of add and update "buttons" for each player.
     Poker.usual_suspects.forEach( function(player) {
       var add_player     = "add_"+player;
-      var update_player  = "update_"+player;
       var add_element    = "<span style=''><a href='#chip_value_page' id='"+add_player+"'>"+player+"</a></span>";
 
-      var update_element = '<li id="contain_'+player+'" class="ui-btn ui-btn-icon-right ui-li-has-arrow '+
-          'ui-li ui-corner-top ui-corner-bottom ui-btn-up-e" data-theme="e" style="display: none">'+
-          ' <div class="ui-btn-inner ui-li ui-corner-top" aria-hidden="true">'+
-          '   <div class="ui-btn-text">'+
-          '       <a href="#chip_value_page" class="ui-link-inherit" id="'+update_player+'">'+
-          '         '+player+"&nbsp;<span id='chips_for_"+player+"'></span>"+
-          '     </a>'+
-          '   </div>'+
-          '   <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>'+
-          '  </div>'+
-          '</li>';
-
       $('#players_to_choose_from').append(add_element);
-      $('#players_list').append(update_element);
       $('#'+add_player).click(   function(event) { Poker.select_player(player); });
-      $('#'+update_player).click(function(event) { Poker.select_player(player); });
     });
 
     // Attach event handlers
@@ -67,8 +52,24 @@ var Poker = {
     var chips = $('#chip_count').val();
     var chip_value = parseFloat(chips);
     if( !isNaN(chip_value) ) {
+      var player = Poker.current_player;
+      var update_player  = "update_"+player;
+      var update_element = '<li id="contain_'+player+'" class="ui-btn ui-btn-icon-right ui-li-has-arrow '+
+          'ui-li ui-corner-top ui-corner-bottom ui-btn-up-e" data-theme="e" >'+
+          ' <div class="ui-btn-inner ui-li ui-corner-top" aria-hidden="true">'+
+          '   <div class="ui-btn-text">'+
+          '       <a href="#chip_value_page" class="ui-link-inherit" id="'+update_player+'">'+
+          '         '+player+"&nbsp;<span id='chips_for_"+player+"'></span>"+
+          '     </a>'+
+          '   </div>'+
+          '   <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>'+
+          '  </div>'+
+          '</li>';
+      $('#players_list').append(update_element);
+      $('#'+update_player).click(function(event) { Poker.select_player(player); });
+
       Poker.players[Poker.current_player] = chip_value;
-      $('#contain_'+Poker.current_player).show();
+//      $('#contain_'+Poker.current_player).show();
       $('#chips_for_'+Poker.current_player).html("$"+chips);
       $('#add_'+Poker.current_player).hide();
     }
