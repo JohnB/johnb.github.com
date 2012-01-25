@@ -5,22 +5,18 @@ var Poker = {
     'ChrisH', 'ChrisR', 'DavidR',  'DavidW',  'EJ',  'GordonC',  'HughB',  'JayN',  'JohnB',  'MarkF',  'OtisW',  'SteveF'
   ],
   players: {}, // {player_name: exact_payout}
-  payouts: [], // [player_name, rounded_payout]
   current_player: '',
   buy_in: 25.00,
   num_players: 7,
+  total_buyin: 0.00,
+  total_chips: 0.00,
+  weighting_factor: 1.00,
+  results_table: [],
+  mail_link: '',
 
   init: function() {
-    // Set the date
-    var currentTime = new Date();
-    var month = currentTime.getMonth() + 1;
-    var day = currentTime.getDate();
-    var year = currentTime.getFullYear();
-    Poker.current_date = '' + year + "/" + month + "/" + day;
+    Poker.set_date();
     $('#date_entry').val(Poker.current_date);
-
-    // Attach save_setup_data to the #save_setup_data element
-    $('#save_setup_data').click( function() {Poker.save_setup_data();});
 
     // Create list of add and update "buttons" for each player.
     Poker.usual_suspects.forEach( function(player) {
@@ -46,8 +42,10 @@ var Poker = {
       $('#'+update_player).click(function(event) { Poker.select_player(player); });
     });
 
-    // Attach save_player to the #save_player element
+    // Attach event handlers
+    $('#save_setup_data').click( function() {Poker.save_setup_data();});
     $('#save_player').click( function() {Poker.save_player();});
+    $('#show_results').click( function() {Poker.update_results();});
   },
 
   save_setup_data: function() {
@@ -76,22 +74,110 @@ var Poker = {
     }
   },
 
+  table_row: function(is_header, row) {
+    var col_type = "td"
+    if(is_header) { col_type = "th" }
+    var t0 = "<"  + col_type + ">";
+    var t1 = "</" + col_type + ">";
+    var row_data = "<tr>" +
+          t0 + row[0] + t1 +
+          t0 + row[1] + t1 +
+          t0 + row[2] + t1 +
+          t0 + row[3] + t1 +
+          "</tr>";
+    return row_data;
+  },
+
   update_results: function(rounding_amount) {
-    // apply the rounding_amount to each exact payout
-    Poker.players.forEach( function(player, exact) {
-      var row = "<tr>" +
-          "<td>" + player
-          "</td>" +
-          "<td>$" + exact
-          "</td>" +
-          "<td>$" + parseInt(''+(exact + 0.49)) +
-          "</td>" +
-          "<td>$" + 5 * parseInt(''+((exact + 2.49)/5)) +
-          "</td>" +
-          "</tr>"
-      $('#payout_container').append(row);
+    Poker.collect_results();
+
+    $('#payout_container').html(Poker.table_row(true,["Player", "Exact", "$1", "$5"]));
+    Poker.results_table.forEach( function(hash) {
+      var rowdata = [
+        hash['player'],
+        "$" + hash['exact'],
+        "$" + hash['to_nearest_one_dollar'],
+        "$" + hash['to_nearest_five_dollars']
+        ]
+      $('#payout_container').append(Poker.table_row(false,rowdata));
     });
-    // prep the mailto: link to include all the info
+
+    Poker.prep_mail_link(Poker.results_table);
+    $('#mail_link').attr("href", Poker.mail_link);
+  },
+
+  collect_results: function() {
+    Poker.set_total_buyin();
+    Poker.set_total_chips();
+    Poker.weighting_factor = Poker.total_buyin / Poker.total_chips;
+
+    Poker.results_table = [];
+    Poker.usual_suspects.forEach( function(player) {
+      var chips = Poker.players[player];
+      if(chips) {
+        var exact = chips * Poker.weighting_factor;
+        var hash = {
+          player: player,
+          chips: chips,
+          exact: (1.0 * Math.round(exact * 100)) / 100.00,
+          to_nearest_one_dollar: Math.round(exact),
+          to_nearest_five_dollars: (5 * Math.round(exact  / 5.0)),
+        }
+        Poker.results_table.push(hash);
+      }
+    });
+    return Poker.results_table;
+  },
+
+  prep_mail_link: function(table) {
+    var crlf = "%0d%0a";
+    var emails = 'john.baylor@gmail.com';
+    var subj = 'Poker results for '+Poker.current_date;
+    var body = "";
+    body += "Players: " + Poker.num_players + crlf;
+    body += "Buy-in:  " + Poker.buy_in      + crlf;
+    body += "Cash:    " + Poker.total_buyin + crlf;
+    body += "Chips:   " + Poker.total_chips + crlf;
+    body += crlf;
+    body +=     Poker.pad_to('Player',10) +
+                Poker.pad_to('Exact',10) +
+                Poker.pad_to('$1',10) +
+                Poker.pad_to('$5',10) + crlf;
+    body +=     Poker.pad_to('------',10) +
+                Poker.pad_to('-----',10) +
+                Poker.pad_to('--',10) +
+                Poker.pad_to('--',10) + crlf;
+    Poker.results_table.forEach( function(hash) {
+      body +=   Poker.pad_to(hash['player'],10) +
+                '$' + Poker.pad_to(hash['exact'],9) +
+                '$' + Poker.pad_to(hash['to_nearest_one_dollar'],9) +
+                '$' + Poker.pad_to(hash['to_nearest_five_dollars'],9) + crlf;
+    });
+    Poker.mail_link = "mailto:" + emails + "?subject=" + subj + "&body=" + body;
+  },
+
+  set_date: function() {
+    var currentTime = new Date();
+    Poker.current_date = '' + currentTime.getFullYear() + "/" +
+        (currentTime.getMonth() + 1) + "/" + currentTime.getDate();
+  },
+
+  set_total_buyin: function() {
+    Poker.total_buyin = 1.0 * Poker.buy_in * Poker.num_players;
+  },
+
+  set_total_chips: function() {
+    var total_chips = 0.00;
+    Poker.usual_suspects.forEach( function(player) {
+      if(Poker.players[player]) {
+        total_chips += Poker.players[player];
+      }
+    });
+    Poker.total_chips = total_chips;
+  },
+
+  pad_to: function(obj, final_length) {
+    return("" + obj + "                    ").substr(0,final_length);
   }
 };
 

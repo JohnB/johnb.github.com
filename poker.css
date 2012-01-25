@@ -7,3 +7,10 @@
   clear: both;
 }
 
+table {
+  border: 1px solid blue;
+}
+
+td {
+  padding: 3px;
+}

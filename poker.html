@@ -51,15 +51,12 @@
     </div>
     <div data-role="controlgroup" data-type="horizontal">
       <a href="#intro_page" data-role="button" data-transition="slide" data-direction="reverse" data-icon="arrow-l">Back</a>
-      <a href="#results_page" data-role="button" data-icon="arrow-r" data-theme="b" >Next</a>
+      <a href="#results_page" data-role="button" data-icon="arrow-r" data-theme="b" id="show_results" >Next</a>
     </div>
   </div>
 </div>
 
 <div data-role="page" class="type-interior" id="chip_value_page">
-  <div data-role="header" data-theme="e">
-    <h1>Poker Calculator</h1>
-  </div>
   <div data-role="content" data-theme="e">
     <label for="chip_count_input"><span id='chips_for_player'></span></label>
     <input type="number" name="chip_count_input" id="chip_count" value=""/>
@@ -72,16 +69,8 @@
 
 </div>
 <div data-role="page" class="type-interior" id="results_page">
-  <div data-role="header" data-theme="e">
-    <h1>Poker Calculator</h1>
-  </div>
   <div data-role="content" data-theme="e">
     <h2>Results</h2>
-
-    <div data-role="controlgroup" data-type="horizontal">
-      <a href="#" data-role="button" data-theme="b" id="one_dollar">$1</a>
-      <a href="#" data-role="button" data-theme="b" id="five_dollars">$5</a>
-    </div>
     <table id="payout_container">
       <tr>
         <th>Player</th>
@@ -93,7 +82,9 @@
     <div data-role="controlgroup" data-type="horizontal">
       <a href="#player_page" data-role="button" data-transition="slide" data-direction="reverse" 
          data-icon="arrow-l">Back</a>
-      <a href="mailto:john.baylor@gmail.com?subject=test&body=foo%20bar" data-role="button" data-theme="b" >Email</a>
+      <a id="mail_link" href="mailto:john.baylor@gmail.com" data-role="button" data-theme="b" >
+        Email
+      </a>
     </div>
   </div>
 </div>
