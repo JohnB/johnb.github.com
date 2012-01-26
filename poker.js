@@ -19,9 +19,14 @@ var Poker = {
     $('#date_entry').val(Poker.current_date);
 
     // Create list of add and update "buttons" for each player.
+    var item_num = 0;
     Poker.usual_suspects.forEach( function(player) {
       var add_player     = "add_"+player;
-      var add_element    = "<span style=''><a href='#chip_value_page' id='"+add_player+"'>"+player+"</a></span>";
+      var add_element    = "<a href='#chip_value_page' id='"+add_player+"'>"+player+"</a>";
+      if(item_num % 3 == 2) {
+        add_element += '<br /><br />'
+      }
+      item_num += 1;
 
       $('#players_to_choose_from').append(add_element);
       $('#'+add_player).click(   function(event) { Poker.select_player(player); });
@@ -41,11 +46,16 @@ var Poker = {
   select_player: function(player) {
     Poker.current_player = player;
     $('#chips_for_player').html('Chips for '+Poker.current_player);
+    var chip_count_el = $('#chip_count');
     if(Poker.players[Poker.current_player]) {
-      $('#chip_count').val(''+Poker.players[Poker.current_player]);
+      chip_count_el.val(''+Poker.players[Poker.current_player]);
     } else {
-      $('#chip_count').val('');
+      chip_count_el.val('');
     }
+//    $( '#chip_value_page' ).live( 'pageinit',function(event){
+////      alert( 'This page was just enhanced by jQuery Mobile!' );
+//      $('#chip_count').focus;
+//    });
   },
 
   save_player: function() {
@@ -54,24 +64,27 @@ var Poker = {
     if( !isNaN(chip_value) ) {
       var player = Poker.current_player;
       var update_player  = "update_"+player;
-      var update_element = '<li id="contain_'+player+'" class="ui-btn ui-btn-icon-right ui-li-has-arrow '+
-          'ui-li ui-corner-top ui-corner-bottom ui-btn-up-e" data-theme="e" >'+
-          ' <div class="ui-btn-inner ui-li ui-corner-top" aria-hidden="true">'+
-          '   <div class="ui-btn-text">'+
-          '       <a href="#chip_value_page" class="ui-link-inherit" id="'+update_player+'">'+
-          '         '+player+"&nbsp;<span id='chips_for_"+player+"'></span>"+
-          '     </a>'+
-          '   </div>'+
-          '   <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>'+
-          '  </div>'+
-          '</li>';
-      $('#players_list').append(update_element);
-      $('#'+update_player).click(function(event) { Poker.select_player(player); });
-
+      var update_content = player+"&nbsp;$"+chips;
+      var update_player_el = $('#'+update_player);
       Poker.players[Poker.current_player] = chip_value;
-//      $('#contain_'+Poker.current_player).show();
-      $('#chips_for_'+Poker.current_player).html("$"+chips);
-      $('#add_'+Poker.current_player).hide();
+      if(update_player_el.length > 0) {
+        update_player_el.html(update_content);
+      } else {
+        var update_element = '<li id="contain_'+player+'" class="ui-btn ui-btn-icon-right ui-li-has-arrow '+
+            'ui-li ui-corner-top ui-corner-bottom ui-btn-up-e" data-theme="e" >'+
+            ' <div class="ui-btn-inner ui-li ui-corner-top" aria-hidden="true">'+
+            '   <div class="ui-btn-text">'+
+            '     <a href="#chip_value_page" class="ui-link-inherit" id="'+update_player+'">'+
+            '         '+update_content+
+            '     </a>'+
+            '   </div>'+
+            '   <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>'+
+            '  </div>'+
+            '</li>';
+        $('#players_list').append(update_element);
+        $('#'+update_player).click(function(event) { Poker.select_player(player); });
+        $('#add_'+Poker.current_player).hide();
+      }
     }
   },
 

@@ -4,7 +4,9 @@
   border: 1px solid;
   padding: 5px 2px 1px 2px;
   margin: 3px 10px 3px 3px;
+  font-size: larger;
   clear: both;
+  width: 8em;
 }
 
 table {
