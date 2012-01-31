@@ -19,14 +19,9 @@ var Poker = {
     $('#date_entry').val(Poker.current_date);
 
     // Create list of add and update "buttons" for each player.
-    var item_num = 0;
     Poker.usual_suspects.forEach( function(player) {
       var add_player     = "add_"+player;
-      var add_element    = "<a href='#chip_value_page' id='"+add_player+"'>"+player+"</a>";
-      if(item_num % 3 == 2) {
-        add_element += '<br /><br />'
-      }
-      item_num += 1;
+      var add_element    = "<a href='#chip_value_page' id='"+add_player+"'>"+player+"</a> ";
 
       $('#players_to_choose_from').append(add_element);
       $('#'+add_player).click(   function(event) { Poker.select_player(player); });
