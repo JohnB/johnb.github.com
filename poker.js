@@ -12,6 +12,7 @@ var Poker = {
   total_chips: 0.00,
   weighting_factor: 1.00,
   results_table: [],
+  html_table: "",
   mail_link: '',
 
   init: function() {
@@ -88,29 +89,28 @@ var Poker = {
     if(is_header) { col_type = "th" }
     var t0 = "<"  + col_type + ">";
     var t1 = "</" + col_type + ">";
-    var row_data = "<tr>" +
-          t0 + row[0] + t1 +
-          t0 + row[1] + t1 +
-          t0 + row[2] + t1 +
-          t0 + row[3] + t1 +
-          "</tr>";
+    var row_data = "<tr>";
+    row.forEach( function(item) { row_data += t0 + item + t1; } );
+    row_data += "</tr>";
     return row_data;
   },
 
   update_results: function(rounding_amount) {
     Poker.collect_results();
+    Poker.html_table += Poker.table_row(true,["Player", "Chips", "$exact", "$1", "$5"])
 
-    $('#payout_container').html(Poker.table_row(true,["Player", "Exact", "$1", "$5"]));
     Poker.results_table.forEach( function(hash) {
       var rowdata = [
         hash['player'],
+        hash['chips'],
         "$" + hash['exact'],
         "$" + hash['to_nearest_one_dollar'],
         "$" + hash['to_nearest_five_dollars']
         ]
-      $('#payout_container').append(Poker.table_row(false,rowdata));
+      Poker.html_table += Poker.table_row(false,rowdata);
     });
 
+    $('#payout_container').html(Poker.html_table);
     Poker.prep_mail_link(Poker.results_table);
     $('#mail_link').attr("href", Poker.mail_link);
   },
@@ -130,7 +130,7 @@ var Poker = {
           chips: chips,
           exact: (1.0 * Math.round(exact * 100)) / 100.00,
           to_nearest_one_dollar: Math.round(exact),
-          to_nearest_five_dollars: (5 * Math.round(exact  / 5.0)),
+          to_nearest_five_dollars: (5 * Math.round(exact / 5.0)),
         }
         Poker.results_table.push(hash);
       }
