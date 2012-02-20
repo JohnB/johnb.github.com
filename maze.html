@@ -1,1 +1,198 @@
-/jbaylor_personal/maze/maze.html
+<!DOCTYPE html>
+<html>
+<style>
+  table, tr, td {
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+    border-spacing: 0
+  }
+
+  td {
+    border: 1px solid #FFF;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  td span {
+    display: none
+  }
+
+  td.top {
+    border-top-color: #666
+  }
+
+  td.right {
+    border-right-color: #666
+  }
+
+  td.bottom {
+    border-bottom-color: #666
+  }
+
+  td.left {
+    border-left-color: #666
+  }
+</style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maze Generator</title>
+  <!--<script src="//code.jquery.com/jquery-1.6.4.js"></script>-->
+  <script>
+    function Cell(xpos,ypos) {
+      return {
+        x: xpos,
+        y: ypos,
+        top: true,
+        bottom: true,
+        left: true,
+        right: true,
+        id: function() {
+          return ''+this.x+'_'+this.y;
+        },
+        wall_status: function() {
+          var status = '';
+          if( this.top    ) { status += 'top ';    }
+          if( this.right  ) { status += 'right ';  }
+          if( this.bottom ) { status += 'bottom '; }
+          if( this.left )   { status += 'left ';   }
+          return status;
+        },
+        to_html: function() {
+          return '<td id="'+this.id()+'" style="" class="'+this.wall_status()+'">&nbsp;</td>\n';
+        },
+        redraw: function(text) {
+          var el = document.getElementById(this.id())
+          el.className = this.wall_status();
+          el.style.background = 'lightyellow';
+          if( text != '') {
+            el.innerHTML = text;
+          }
+        },
+        was_discovered: function() {
+          var cell = new Cell(0,0);
+          return this.wall_status() != cell.wall_status();
+        },
+        discover_from: function(neighbor, timeout) {
+          var this_obj = this;
+          if( neighbor.x > this.x) {
+            this.right = false;
+            neighbor.left = false;
+          } else if( neighbor.x < this.x) {
+            this.left = false;
+            neighbor.right = false;
+          } else if( neighbor.y > this.y) {
+            this.bottom = false;
+            neighbor.top = false;
+          } else if( neighbor.y < this.y) {
+            this.top = false;
+            neighbor.bottom = false;
+          }
+          setTimeout( function() { this_obj.redraw(''); }, timeout);
+          setTimeout( function() { neighbor.redraw(''); }, timeout);
+        }
+      };
+    };
+
+
+    var Maze = {
+      per_level_timeout_ms: 200,
+      width: 16,
+      height: 16,
+      depth: 0,
+      grid_yx: [],
+      finish: null,
+      start: null,
+      init: function() {
+        this.prepare_grid_yx();
+        this.select_openings();
+        this.explore(this.finish);
+        this.add_outlets();
+      },
+      prepare_grid_yx: function() {
+        var html = "";
+        var row = 0;
+        for( row = 0; row < this.height; row++ ) {
+          html += "<tr>"
+          var rowdata = []
+          var column = 0;
+          for( column = 0; column < this.width; column++ ) {
+            var c = new Cell(column, row)
+            html += c.to_html();
+            rowdata.push(c);
+          }
+          this.grid_yx.push(rowdata);
+          html += "</tr>\n"
+        }
+        document.getElementById('maze').innerHTML = html;
+      },
+      select_openings: function() {
+        this.finish = this.grid_yx[Math.floor(Math.random() * this.height)][this.width - 1];
+        this.start = this.grid_yx[Math.floor(Math.random() * this.height)][0];
+      },
+      explore: function(cell) {
+        var dirs = this.shuffle([[0,-1],[0,1],[-1,0],[1,0]]);
+        var dir = 0;
+        for( dir = 0; dir < 4; dir++ ) {
+          var neighbor = this.neighbor_cell(cell, dirs[dir]);
+          if( neighbor && !neighbor.was_discovered() ) {
+            cell.discover_from(neighbor, this.per_level_timeout_ms * this.depth);
+            this.depth++;
+            if( this.depth < (this.width * this.height) ) {
+              this.explore(neighbor);
+            }
+            this.depth--;
+          }
+        }
+      },
+      add_outlets: function() {
+        this.finish.right = false;
+        this.start.left = false;
+        this.finish.redraw('E');
+        this.start.redraw('S');
+      },
+      shuffle: function(ar) {
+        var el;
+        var iterations = 4 + Math.floor(Math.random()*5);
+        var counter = 0;
+        for(counter = 0; counter < iterations; counter++ ) {
+          var op = Math.floor(Math.random() * 3);
+          if( op == 0 ) {
+            ar = ar.reverse();
+          } else if( op == 1 ) {
+            el = ar.shift();
+            ar.push(el);
+          } else if( op == 2 ) {
+            el = ar.pop();
+            ar.unshift(el);
+          }
+        }
+        return ar;
+      },
+      neighbor_cell: function(cell, delta) {
+        var new_x = cell.x + delta[0];
+        var new_y = cell.y + delta[1];
+        if(new_x < 0 || new_x >= this.width || new_y < 0 || new_y >= this.height) {
+          return null;
+        } else {
+          var new_cell = this.grid_yx[new_y][new_x];
+          return new_cell;
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+</body>
+  <p>
+    Inspired by Jack Danger Canty's <a href="https://github.com/JackDanger/maze/blob/master/maze.rb">
+    depth-first maze</a>. Drawn slowly (and backwards) so you can see the process.
+  </p>
+  <table id="maze"></table>
+  <script>
+    Maze.init();
+  </script>
+</html>
