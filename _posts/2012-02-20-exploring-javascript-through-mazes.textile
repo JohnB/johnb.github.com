@@ -10,3 +10,5 @@ Inspired by Jack Danger Canty's <a href="https://github.com/JackDanger/maze">exh
 The only thing I added over his implementation was the delayed redraw of each cell, allowing us to see the maze being developed. I also, inadvertently, added a bass-ackwards grid that needs to be accessed as Y,X instead of the usual X,Y (oops).
 
 Try it yourself in yet another language - its kinda fun.
+
+<i>Postscript 2/22/2012:</i> <a href="https://twitter.com/#!/lantius">@lantius</a> modified my code to use <a href="http://www.cs.washington.edu/education/courses/cse326/06su/project2/kruskal.html">Kruskal's algorithm</a> to generate <a href="http://lantius.github.com/maze.html">very different mazes</a>.
