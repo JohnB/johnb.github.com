@@ -112,6 +112,8 @@ var Poker = {
       Poker.html_table += Poker.table_row(false,rowdata);
     });
 
+    $('#buy_in_result').html(Poker.buy_in)
+    $('#stimulus_result').html(Poker.stimulus)
     $('#payout_container').html(Poker.html_table);
     Poker.prep_mail_link(Poker.results_table);
     $('#mail_link').attr("href", Poker.mail_link);
