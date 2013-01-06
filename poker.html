@@ -9,7 +9,7 @@
   <script src="//code.jquery.com/jquery-1.6.4.js"></script>
   <badscript src="../../experiments/themeswitcher/jquery.mobile.themeswitcher.js"></script>
   <badscript src="../_assets/js/jqm-docs.js"></script>
-  <script src="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 
   <link rel="stylesheet" href="poker.css"/>
   <script src="poker.js"></script>
@@ -28,11 +28,15 @@
       <input type="text" id="date_entry" value="-todays-date-here-" disabled="disabled""/>
       <p></p>
       <label for="buy_in_slider">Buy-in:</label>
-      <input type="range" name="buy_in_slider" id="buy_in_slider" value="25" min="0" max="100" />
+      <input type="range" name="buy_in_slider" id="buy_in_slider" value="25" min="0" max="100" step="5" />
 
       <p></p>
       <label for="players_slider">Players:</label>
       <input type="range" name="players_slider" id="players_slider" value="7" min="4" max="10" />
+
+      <p></p>
+      <label for="stimulus_slider">Stimulus:</label>
+      <input type="range" name="stimulus_slider" id="stimulus_slider" value="0" min="0" max="95" step="5" />
     </form>
     <div data-role="controlgroup" data-type="horizontal">
       <a href="#player_page" data-role="button" data-icon="arrow-r" data-theme="b" id="save_setup_data">Next</a>
@@ -76,7 +80,7 @@
     <table id="payout_container">
     </table>
     <div data-role="controlgroup" data-type="horizontal">
-      <a href="#player_page" data-role="button" data-transition="slide" data-direction="reverse" 
+      <a href="#player_page" data-role="button" data-transition="slide" data-direction="reverse"
          data-icon="arrow-l">Back</a>
       <a id="mail_link" href="mailto:john.baylor@gmail.com" data-role="button" data-theme="b" >
         Email

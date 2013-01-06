@@ -1,13 +1,14 @@
 var Poker = {
   current_date: '-date-goes-here-',
   usual_suspects: [
-    'BobS', 'BrianE', 'ChrisH', 'ChrisR', 'DavidR',  'DavidW',  'EJ',  'GordonC',  'HughB',  
+    'BobS', 'BrianE', 'ChrisH', 'ChrisR', 'DavidR',  'DavidW',  'EJ',  'GordonC',  'HughB',
     'JayN',  'JohnB',  'JohnH',  'MarkF',  'OtisW',  'SteveF', 'X1', 'X2'
   ],
   players: {}, // {player_name: exact_payout}
   current_player: '',
   buy_in: 25.00,
   num_players: 7,
+  stimulus: 0,
   total_buyin: 0.00,
   total_chips: 0.00,
   weighting_factor: 1.00,
@@ -37,6 +38,7 @@ var Poker = {
   save_setup_data: function() {
     Poker.buy_in = parseFloat($('#buy_in_slider').val());
     Poker.num_players = parseInt($('#players_slider').val());
+    Poker.stimulus = parseInt($('#stimulus_slider').val());
   },
 
   select_player: function(player) {
@@ -124,7 +126,11 @@ var Poker = {
     Poker.usual_suspects.forEach( function(player) {
       var chips = Poker.players[player];
       if(chips) {
-        var exact = chips * Poker.weighting_factor;
+        var exact = chips - Poker.stimulus;
+        if( exact < 0) {
+          exact = 0;
+        }
+        exact = exact * Poker.weighting_factor;
         var hash = {
           player: player,
           chips: chips,
@@ -143,10 +149,11 @@ var Poker = {
     var emails = 'john.baylor@gmail.com';
     var subj = 'Poker results for '+Poker.current_date;
     var body = "";
-    body += "Players: " + Poker.num_players + crlf;
-    body += "Buy-in:  " + Poker.buy_in      + crlf;
-    body += "Cash:    " + Poker.total_buyin + crlf;
-    body += "Chips:   " + Poker.total_chips + crlf;
+    body += "Players:  " + Poker.num_players + crlf;
+    body += "Buy-in:   " + Poker.buy_in      + crlf;
+    body += "Stimulus: " + Poker.stimulus    + crlf;
+    body += "Cash:     " + Poker.total_buyin + crlf;
+    body += "Chips:    " + Poker.total_chips + crlf;
     body += crlf;
     body +=     Poker.pad_to('Player',10) +
                 Poker.pad_to('Exact',10) +
@@ -162,6 +169,9 @@ var Poker = {
                 '$' + Poker.pad_to(hash['to_nearest_one_dollar'],9) +
                 '$' + Poker.pad_to(hash['to_nearest_five_dollars'],9) + crlf;
     });
+    body += crlf;
+    body += "Created by: http://johnb.github.com/poker.html";
+    body += crlf;
     Poker.mail_link = "mailto:" + emails + "?subject=" + subj + "&body=" + body;
   },
 
