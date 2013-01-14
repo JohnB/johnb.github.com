@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Example</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+
+    <script src='https://github.com/cantino/expando/raw/master/jquery.expando.js'></script>
+    <link rel="stylesheet" type="text/css" href="https://github.com/cantino/expando/raw/master/expando.css"
+          media="all"/>
+    <link rel="stylesheet" type="text/css" href="story.css" media="all"/>
+
+    <script>
+        $(function () {
+            $(".expansion-test").expando({
+                expansionStartColor:"#EF7A28",
+                expansionEndColor:"#444",
+                expansionBreakMargin:"15px",
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class='expansion-test expando-region'>
+<replace>A donation story at
+<expando><initial>
+  Razoo
+</initial><expanded>
+  <a href="http://www.razoo.com">razoo.com</a>, where I
+  <expando><initial>
+    work
+  </initial><expanded>
+    <div class='break'></div>strive<div class='break'></div> to change how individuals interact with the causes they support<div class='break'></div>
+  </expanded></expando>
+</expanded></expando>
+should be
+<expando><initial>
+  compelling
+</initial><expanded>
+  <div class='break'></div>compelling enough <div class='break'></div>for someone to
+  <expando><initial>
+    donate money
+  </initial><expanded>
+    donate money and
+    <expando><initial>
+      time
+    </initial><expanded>
+      time - a little bit of time to ask others to also donate
+    </expanded></expando>
+  </expanded></expando>
+
+</expanded></expando>
+</replace>
+</div>
+</body>
+</html>
+
