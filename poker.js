@@ -11,6 +11,7 @@ var Poker = {
   stimulus: 0,
   total_buyin: 0.00,
   total_chips: 0.00,
+  total_chips_without_stimulus: 0.00,
   weighting_factor: 1.00,
   results_table: [],
   html_table: "",
@@ -122,7 +123,7 @@ var Poker = {
   collect_results: function() {
     Poker.set_total_buyin();
     Poker.set_total_chips();
-    Poker.weighting_factor = Poker.total_buyin / Poker.total_chips;
+    Poker.weighting_factor = Poker.total_buyin / Poker.total_chips_without_stimulus;
 
     Poker.results_table = [];
     Poker.usual_suspects.forEach( function(player) {
@@ -151,11 +152,12 @@ var Poker = {
     var emails = 'john.baylor@gmail.com';
     var subj = 'Poker results for '+Poker.current_date;
     var body = "";
-    body += "Players:  " + Poker.num_players + crlf;
-    body += "Buy-in:   " + Poker.buy_in      + crlf;
-    body += "Stimulus: " + Poker.stimulus    + crlf;
-    body += "Cash:     " + Poker.total_buyin + crlf;
-    body += "Chips:    " + Poker.total_chips + crlf;
+    body += "Players:    " + Poker.num_players + crlf;
+    body += "Buy-in:     " + Poker.buy_in      + crlf;
+    body += "Stimulus:   " + Poker.stimulus    + crlf;
+    body += "Cash:       " + Poker.total_buyin + crlf;
+    body += "Chips:      " + Poker.total_chips + crlf;
+    body += "Chips-Stim: " + Poker.total_chips_without_stimulus + crlf;
     body += crlf;
     body +=     Poker.pad_to('Player',10) +
                 Poker.pad_to('Exact',10) +
@@ -189,12 +191,18 @@ var Poker = {
 
   set_total_chips: function() {
     var total_chips = 0.00;
+    var chips_without_stimulus = 0.00;
     Poker.usual_suspects.forEach( function(player) {
       if(Poker.players[player]) {
-        total_chips += Poker.players[player];
+        var player_chips = Poker.players[player];
+        total_chips += player_chips;
+        if( player_chips > Poker.stimulus ) {
+            chips_without_stimulus += player_chips - Poker.stimulus;
+        }
       }
     });
     Poker.total_chips = total_chips;
+    Poker.total_chips_without_stimulus = chips_without_stimulus;
   },
 
   pad_to: function(obj, final_length) {
