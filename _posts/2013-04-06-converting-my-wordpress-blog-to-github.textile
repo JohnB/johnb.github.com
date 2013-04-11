@@ -25,6 +25,7 @@ able to see the overall structure of how the pages relate.
 ```
 wget -r  http://www.johnbaylor.org/
 ```
+Note: for secure sites, see http://stackoverflow.com/questions/4272770/wget-with-authentication 
 
 An additional benefit is that the blog is now backed up
 locally as HTML files, so I could maybe now (finally!) close my DreamHost account.
