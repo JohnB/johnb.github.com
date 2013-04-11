@@ -1,0 +1,131 @@
+---
+layout: default
+title: toothpicks
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 12.21.08 # {#12.21.08}
+
+ 
+			
+
+## [Toothpicks](http://www.johnbaylor.org/2008/12/21/toothpicks/ "Permanent link to Toothpicks") ## {#[Toothpicks](http//www.johnbaylor.org/2008/12/21/toothpicks/"PermanentlinkToothpicks")}
+
+			
+
+Posted in [ruby](http://www.johnbaylor.org/category/ruby/ "View all posts in 
+ruby") at 12:25 pm by JohnB
+
+		
+			
+
+Intending to direct a new Ruby-ist to [rubyquiz.com](http://rubyquiz.com/), 
+I hastily misread the [Counting Toothpicks](http://rubyquiz.com/quiz111.html) 
+quiz as the reverse of what was intended.  So here is my quick code to solve 
+the wrong problem: converting a string of toothpicks to its underlying equation 
+and giving the answer. I was quite happy with my short solution until realizing 
+that I had solved a much simpler problem. In any case, here it is:
+
+	#
+	# toothpicks.rb
+	#
+	def toothpicks str
+	  puts str
+	  str.gsub!(' ','')
+	  raise 'Wrong format' unless str =~ /^(x|\||\+|-)*$/
+	  count = str.length
+	  count += str.scan(/(x|\+)/).length
+	  str.length.downto(1) do |n|
+	    str.gsub!( '|'* n, n.to_s )
+	  end
+	  str.gsub!('x','*')
+	  puts str
+	  result = eval(str)
+	  puts "#{result} from #{count} toothpicks"
+	end
+	
+	if ARGV[0]
+	  toothpicks ARGV[0].dup
+	else
+	  toothpicks '||| x || + ||||| - |||||||'
+	end
+
+Running with no arguments tests the example equation:
+
+	>>toothpicks.rb
+	||| x || + ||||| - |||||||
+	3*2+5-7
+	4 from 22 toothpicks
+
+Note: syntax highlighting provided by [this nice page](http://www.rubyinside.com/advent2006/7-coloring.html). 
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2008/12/21/toothpicks/ "Permanent link to Toothpicks")
+						
+
+		
+		
+
+			
+		
+
+	 
+				
+	
+
+	
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

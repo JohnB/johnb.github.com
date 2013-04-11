@@ -1,0 +1,108 @@
+---
+layout: default
+title: even-more-rapid-development
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 11.28.07 # {#11.28.07}
+
+ 
+			
+
+## [Even More Rapid Development](http://www.johnbaylor.org/2007/11/28/even-more-rapid-development/ "Permanent link to Even More Rapid Development") ## {#[EvenMoreRapidDevelopment](http//www.johnbaylor.org/2007/11/28/even-more-rapid-development/"PermanentlinkEvenMoreRapidDevelopment")}
+
+			
+
+Posted in [Uncategorized](http://www.johnbaylor.org/category/uncategorized/ 
+"View all posts in Uncategorized") at 1:41 pm by JohnB
+
+		
+			
+
+The success of the Ruby on Rails web framework is somewhat based on its  ability 
+to soothe the pain caused by the not-so-rapid development process of other, 
+so-called “enterprise-ready” frameworks.  But Rails is not the only Ruby web 
+framework, and not the fastest one for initial prototyping(*).  The faster 
+(more rabid?) ones I’ve looked at:
+
+- [Camping](http://camping.rubyforge.org/).  From the the [quirky mind](http://www.poignantguide.net/ruby/) of [why-the-luck-stiff](http://en.wikipedia.org/wiki/Why_the_lucky_stiff) (no other name given) it inspires absurdly fast development (and absurdity!).
+- [Sinatra](http://sinatra.rubyforge.org/).  Some people who have tried Camping have moved on to Sinatra – it has a clean syntax and a simple metaphor (Sinatra attends events) and is supported by a larger team.
+
+Its hard to imagine what faster development would look like – maybe a web interface 
+for defining Camping or Sinatra event handlers?  Code the app directly from 
+the browser!
+
+(*) Footnote: Note that I use the word “prototype” because that is all I have 
+done with them – I see no reason they couldn’t scale as well as Rails or any 
+other web framework.
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2007/11/28/even-more-rapid-development/ "Permanent link to Even More Rapid Development")
+						
+
+		
+		
+
+			
+		
+
+	 
+				
+	
+
+	
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

@@ -1,0 +1,105 @@
+---
+layout: default
+title: irb-tip
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 08.07.07 # {#08.07.07}
+
+ 
+			
+
+## [irb tip](http://www.johnbaylor.org/2007/08/07/irb-tip/ "Permanent link to irb tip") ## {#[irbtip](http//www.johnbaylor.org/2007/08/07/irb-tip/"Permanentlinkirbtip")}
+
+			
+
+Posted in [ruby](http://www.johnbaylor.org/category/ruby/ "View all posts in 
+ruby") at 3:04 pm by JohnB
+
+		
+			
+
+Have you ever loaded a file into irb, only to find that it scrolls endlessly? 
+Its easy to do by accident:
+
+`log = File.open('bigger_file_than_you_expected.log') { |f| f.read }`
+
+But a simple trick can limit the output to a single useful line:
+
+`(log = File.open('bigger_file_than_you_expected.log') { |f| f.read }).length`
+`=> 5066612`
+
+Now you can happily slice and dice your data without all the useless output.  
+And yes, it applies to any operation that would spit out more data than you 
+really want to see.
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2007/08/07/irb-tip/ "Permanent link to irb tip")
+						
+
+		
+		
+
+			
+		
+
+	 
+				
+	
+
+	
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

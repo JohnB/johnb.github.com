@@ -1,0 +1,118 @@
+---
+layout: default
+title: the-perception-of-scarcity-in-a-climate-of-fear
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 11.28.07 # {#11.28.07}
+
+ 
+			
+
+## [The Perception of Scarcity in a Climate of Fear](http://www.johnbaylor.org/2007/11/28/the-perception-of-scarcity-in-a-climate-of-fear/ "Permanent link to The Perception of Scarcity in a Climate of Fear") ## {#[PerceptionofScarcityinaClimateofFear](http//www.johnbaylor.org/2007/11/28/-perception-of-scarcity-in-a-climate-of-fear/"PermanentlinkPerceptionofScarcityinaClimateofFear")}
+
+			
+
+Posted in [musings](http://www.johnbaylor.org/category/musings/ "View all posts 
+in musings") at 1:56 pm by JohnB
+
+		
+			
+
+I was playing [Blokus](http://www.blokus.com/ "Official Blokus site") today, 
+where competition is driven by the scarcity of space on the game board, and 
+realized that the _perception_ of scarcity is often more prevalent than _actual_ 
+scarcity – and thus we needlessly hobble ourselves by limiting things that 
+are abundant. Similarly, our fear that something might happen to us (crime, 
+identity theft, terrorism, etc. – whatever monsters we see on the evening news) 
+forces us to add locks and protections that mostly just result in making it 
+hard for _us_ to access our _own_ belongings and data and websites.
+
+The context for this discussion is a website (nameless, sorry) that I’m interested 
+in working on. The startup site, yet another type of social network, holds 
+the promise of allowing for some very interesting and powerful interactions 
+– but unnecessarily limits its users as it guards scarce server resources and 
+data security. Furthermore, and I’m going out on a limb here, I suspect that 
+these mis-perceptions are one of the reasons this startup has had difficulty 
+in raising much-needed funds. Some examples:
+
+- Users are automatically logged out after a few idle minutes, with no option of changing the time period before auto-logout (or choosing “Keep me logged in” for single-user computers). This seems a bit draconian given that there is nothing accessible on the site that couldn’t be gathered in other ways – no bank statements, social security number or mother’s maiden name.
+- A PDF document containing the public profile data for your social circle can be generated for off-line access, but only by a subset of the social circle and only for a short period of time. I think this is intended both for security and to guard scarce resources (such as server time and bandwidth). The former concern is misguided – anyone receiving the PDF can circumvent security by immediately sending it to bad people – which is unstoppable once you provide off-line access). The scarcity of server time or bandwidth can be overcome by delegating it to someone else such as [Amazon’s ECC](http://www.amazon.com/b/ref=sc_fe_l_2?ie=UTF8&node=201590011&no=3435361&me=A36L942TSJ2AJA "Elastic Compute Cloud") or [S3 services](http://www.amazon.com/S3-AWS-home-page-Money/b/ref=sc_fe_l_2?ie=UTF8&node=16427261&no=3435361&me=A36L942TSJ2AJA "Simple Storage Service").
+- New people can be invited to the social circle, but only by a small initial set of users – and those invitations expire relatively quickly. Its unclear why this decision was made, but I suspect it was due to some perception of scarcity or security. All it appears to do is add yet another unnecessary barrier to entry.
+
+In spite of these issues, and others, I’m still captivated by the underlying 
+ideas that it represents and by what it could become in the future. Hopefully 
+I can [rapidly prototype](http://www.johnbaylor.org/2007/11/28/even-more-rapid-development/) 
+my vision for an improved site and use it as a starting point to land a dream 
+job.
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2007/11/28/the-perception-of-scarcity-in-a-climate-of-fear/ "Permanent link to The Perception of Scarcity in a Climate of Fear")
+						
+
+		
+		
+
+			
+		
+
+	 
+				
+	
+
+	
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

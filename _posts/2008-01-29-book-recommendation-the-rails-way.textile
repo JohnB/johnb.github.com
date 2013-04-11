@@ -1,0 +1,131 @@
+---
+layout: default
+title: book-recommendation-the-rails-way
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 01.29.08 # {#01.29.08}
+
+ 
+			
+
+## [Book Recommendation: The Rails Way](http://www.johnbaylor.org/2008/01/29/book-recommendation-the-rails-way/ "Permanent link to Book Recommendation: The Rails Way") ## {#[BookRecommendationRailsWay](http//www.johnbaylor.org/2008/01/29/book-recommendation--rails-way/"PermanentlinkBookRecommendationRailsWay")}
+
+			
+
+Posted in [Uncategorized](http://www.johnbaylor.org/category/uncategorized/ 
+"View all posts in Uncategorized") at 12:53 pm by JohnB
+
+		
+			
+
+[The Rails Way](http://www.amazon.com/Rails-Way-Addison-Wesley-Professional-Ruby/dp/0321445619 
+"Amazon") is a Ruby on Rails reference book that I bought on [Josh Susser’s 
+recommendation](http://blog.hasmanythrough.com/2007/12/20/book-review-the-rails-way).  
+I’ve actually, to my family’s dismay, been _reading_ the darn thing instead 
+of just _referring_ to it like one would a, well, reference book.  A lot of 
+Rails’isms that I had a vague idea about I now understand with much more clarity.  
+It will definitely come in handy soon.
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2008/01/29/book-recommendation-the-rails-way/ "Permanent link to Book Recommendation: The Rails Way")
+						
+
+		
+		
+
+			
+		
+
+	
+
+##  2 Comments [»](#postcomment "Jump to the comments form")			 ## {#2Comments[»](#postcomment"Jumpcommentsform")}
+
+ 
+
+	
+
+1. 				
+[Robert](http://wombatnation.com/) said,
+				
+February 11, 2008 at [10:05 am](#comment-9 "Permanent link to this comment") 
+ 
+				
+				
+Congrats on the new job!
+			
+2. 				
+Richard Berger said,
+				
+December 7, 2008 at [7:51 pm](#comment-273 "Permanent link to this comment") 
+ 
+				
+				
+I got a linked in email and you were on the RHS of an update (I only read the 
+right hand sides) – and noted that you were connected to Ben Netick, whom I 
+knew from my job at 2Bridge. Which led me to your site, which lead me to RoR. 
+ 
+My quick story is that I read some RoR book – and thought that concept was 
+great, but couldn’t get past the Ruby language – something just didn’t click 
+for me. But I didn’t give up on the concept and a few months later read Groovy 
+and Grails – and have shifted all my development to Grails and couldn’t be 
+happier. It is one of the biggest productivity increases I have seen in many 
+years of software.
+Hope you are doing well….  
+ RB
+			
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

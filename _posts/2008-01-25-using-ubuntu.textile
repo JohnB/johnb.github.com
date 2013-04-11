@@ -1,0 +1,101 @@
+---
+layout: default
+title: using-ubuntu
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 01.25.08 # {#01.25.08}
+
+ 
+			
+
+## [Using Ubuntu](http://www.johnbaylor.org/2008/01/25/using-ubuntu/ "Permanent link to Using Ubuntu") ## {#[UsingUbuntu](http//www.johnbaylor.org/2008/01/25/using-ubuntu/"PermanentlinkUsingUbuntu")}
+
+			
+
+Posted in [Uncategorized](http://www.johnbaylor.org/category/uncategorized/ 
+"View all posts in Uncategorized") at 3:18 pm by JohnB
+
+		
+			
+
+I’ve heard that dual-booting Ubuntu linux was easy but its really true. I’m 
+now running Ubuntu and it was as easy as various blog posts have said. The 
+longest step in the process was defragmenting the drive before repartitioning 
+with Ubuntu. There are a few issues remaining around using the data on the 
+Windows partition from Linux, but on the whole I’m very happy with the switch. 
+
+_[Update 1/29/2008: the network is inconsistent.  Upon a boot or un-hibernate 
+it may be completely incapable of finding my router - but then later it is 
+fine. I'll continue trying to track it down... using the Windows OS!] _
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2008/01/25/using-ubuntu/ "Permanent link to Using Ubuntu")
+						
+
+		
+		
+
+			
+		
+
+	 
+				
+	
+
+	
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

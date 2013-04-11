@@ -1,0 +1,123 @@
+---
+layout: default
+title: scrappy
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 12.10.09 # {#12.10.09}
+
+ 
+			
+
+## [Scrappy](http://www.johnbaylor.org/2009/12/10/scrappy/ "Permanent link to Scrappy") ## {#[Scrappy](http//www.johnbaylor.org/2009/12/10/scrappy/"PermanentlinkScrappy")}
+
+			
+
+Posted in [ruby](http://www.johnbaylor.org/category/ruby/ "View all posts in 
+ruby") at 11:55 am by JohnB
+
+		
+			
+
+_Update: Ignore all the great ideas below. @defunkt pointed me to [jaml](http://github.com/edspencer/jaml/), 
+which does a big chunk of what I was interested in._
+
+I’ve followed the work of [@hcatlin](http://twitter.com/hcatlin), [@defunkt](http://twitter.com/defunkt) 
+and [@justinbmeyer](http://twitter.com/justinbmeyer) on templating languages 
+([haml](http://haml-lang.com/), [mustache](http://javascriptmvc.com/) and [javascriptMVC](http://javascriptmvc.com/)) 
+and have looked for something that met my needs. Here is an idea that seems 
+simpler than javascriptMVC but has more power than haml or mustache – hopefully 
+the sweet spot I’ve been looking for.
+
+The initial idea, inspired by haml but not needing a text parser, was to represent 
+markup as JSON:
+
+ Which would generate: 
+
+However, this provides no support for interaction with the markup. When considering 
+generating a set of dialogs for user interaction I really wanted field validation 
+built in, like this:
+
+ Eventually I realized that wrapping all the functionality as a filter, in 
+essence creating a tiny _scrap_ of functionality, was what I was looking for: 
+ 
+
+I could see wrapping a form scrap in a larger dialog-handling scrap that knew 
+enough to validate its internal scraps before allowing the OK button to save 
+the data. It should work – I just wish it could be as pretty as the others 
+– but I don’t see that as possible, given the semantics of JSON.
+
+The true test will be when I actually implement the code to support such a 
+construct. Look for a _johnb/scrappy_ project on Github. Until then, I’ll just 
+assume it works! ![;-)](http://www.johnbaylor.org/wp-includes/images/smilies/icon_wink.gif) 
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2009/12/10/scrappy/ "Permanent link to Scrappy")
+						
+
+		
+		
+
+			
+		
+
+	 
+				
+	
+
+	
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

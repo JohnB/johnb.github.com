@@ -1,0 +1,94 @@
+---
+layout: default
+title: javascript
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 08.22.07 # {#08.22.07}
+
+ 
+			
+
+## [Javascript](http://www.johnbaylor.org/2007/08/22/javascript/ "Permanent link to Javascript") ## {#[Javascript](http//www.johnbaylor.org/2007/08/22/javascript/"PermanentlinkJavascript")}
+
+			
+
+Posted in [Uncategorized](http://www.johnbaylor.org/category/uncategorized/ 
+"View all posts in Uncategorized") at 4:00 pm by JohnB
+
+		
+			
+
+Just thought it would be a good time to post an example of  
+[my javascript code](http://www.idiom.com/~jtbaylor/blokus.htm?P=98a0&M=0mBb0pSa7qSs2sBs2jFd4uPd4mPs5uEp4lIg2tNg4nPq2mGm4rHk0oMj0sNm1qJl4sLg7qLm4lKj6lFi0oOi3kHn0oPk1rKo5uRk7fOp6rJe5tGf1tCf3mQh6pMp0pJc4qBi4rFq0kLb0oMd0nEk0sDm5uOd1kPb4hBm6hBp5tQf) – ugly and insecure, but sufficient for this game among friends.
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2007/08/22/javascript/ "Permanent link to Javascript")
+						
+
+		
+		
+
+			
+		
+
+	 
+				
+	
+
+	
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

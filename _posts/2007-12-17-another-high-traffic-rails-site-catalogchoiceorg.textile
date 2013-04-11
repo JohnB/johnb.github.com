@@ -1,0 +1,97 @@
+---
+layout: default
+title: another-high-traffic-rails-site-catalogchoiceorg
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 12.17.07 # {#12.17.07}
+
+ 
+			
+
+## [Another High-Traffic Rails Site: catalogchoice.org](http://www.johnbaylor.org/2007/12/17/another-high-traffic-rails-site-catalogchoiceorg/ "Permanent link to Another High-Traffic Rails Site: catalogchoice.org") ## {#[AnotherHigh-TrafficRailsSitecatalogchoice.org](http//www.johnbaylor.org/2007/12/17/another-high-traffic-rails-site-catalogchoiceorg/"PermanentlinkAnotherHigh-TrafficRailsSitecatalogchoice.org")}
+
+			
+
+Posted in [Uncategorized](http://www.johnbaylor.org/category/uncategorized/ 
+"View all posts in Uncategorized") at 6:12 pm by JohnB
+
+		
+			
+
+Its getting a lot of traffic and seems pretty snappy:
+
+[http://www.catalogchoice.org/](http://www.catalogchoice.org/ "catalogchoice.org") 
+
+So yes, Virginia, Ruby and Rails do scale.
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2007/12/17/another-high-traffic-rails-site-catalogchoiceorg/ "Permanent link to Another High-Traffic Rails Site: catalogchoice.org")
+						
+
+		
+		
+
+			
+		
+
+	 
+				
+	
+
+	
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>

@@ -1,0 +1,213 @@
+---
+layout: default
+title: rubyconf-2009
+---
+
+<div id="page">
+
+
+
+
+			
+		
+
+			
+
+# 11.30.09 # {#11.30.09}
+
+ 
+			
+
+## [RubyConf 2009](http://www.johnbaylor.org/2009/11/30/rubyconf-2009/ "Permanent link to RubyConf 2009") ## {#[RubyConf2009](http//www.johnbaylor.org/2009/11/30/rubyconf-2009/"PermanentlinkRubyConf2009")}
+
+			
+
+Posted in [ruby](http://www.johnbaylor.org/category/ruby/ "View all posts in 
+ruby") at 11:05 am by JohnB
+
+		
+			
+
+I was recently given the opportunity of attending [Ruby Conf 2009](http://www.rubyconf.org/). 
+It was a lot of fun being with a few hundred of my Rubyist peers. You can now 
+see for yourself via the recently-uploaded [session videos](http://rubyconf2009.confreaks.com/) 
+or the [RubyConf-in-22 minutes video](http://blog.envylabs.com/2009/12/rubyconf-videos/). 
+Or read [other](http://www.tbray.org/ongoing/When/200x/2009/11/21/RubyConf-2009 
+"Tim Bray's") RubyConf wrap-ups. Due to the sheer amount of information, my 
+personal wrap-up here is in the boring _at-this-time-I-saw-this_ format. I’ll 
+try to have links to each talk, but they aren’t all available at the time of 
+writing this – I’ll try to update the list later.
+
+Wednesday night I received my ticket via email from [a nice guy in New York](http://jake.howmeta.com/) 
+who couldn’t go at the last minute. Lucky for me!
+
+Thursday 9am the conference started with a keynote from [“Matz” (Yukihiro Matsumoto)](http://en.wikipedia.org/wiki/Yukihiro_Matsumoto) 
+the creator of Ruby. It was not the most interesting talk I’d heard, but everyone 
+listened politely. Immediately after Matz’s talk I picked up my free [Poken](http://www.poken.com/about) 
+device to track the people I met. The Poken was kinda fun at the conference 
+but not very useful unless you’re near a lot of new people who also have them. 
+But at the conference it was kinda fun to touch someone’s Poken to capture 
+a digital business card.
+
+Thursday 10am I attended the [BERT and ERNIE](http://rubyconf2009.confreaks.com/19-nov-2009-10-25-bert-and-ernie-scaling-your-ruby-site-with-erlang-tom-preston-werner.html) 
+talk from one of the GitHub guys, which was fairly close to [what I’d already 
+read](http://github.com/blog/531-introducing-bert-and-bert-rpc) of the new 
+GitHub server infrastructure. Its amazing what you can do with smart people 
+and enough servers to effectively distribute your workload.
+
+Thursday 11am to 4pm I listened to talks on [Bits and Bytes](http://rubyconf2009.confreaks.com/19-nov-2009-11-15-bits-bytes-and-blobs-brian-mitchell.html), 
+[DSLs](http://rubyconf2009.confreaks.com/19-nov-2009-13-15-dsls-code-generation-and-new-domains-for-ruby-joel-vanderwerf.html) 
+and Flying Robots – the quality of these talks was inconsistent and there was 
+not much material I wasn’t already aware of, but I met some interesting people 
+at each session.
+
+At 4pm Thursday was a [talk on MongoDB](http://www.slideshare.net/mdirolf/mongodb-at-rubyconf?src=related_normal&rel=2557295) 
+that cleared up some misconceptions I had. This dovetailed nicely with the 
+Friday 9am “Not Only SQL” talk about other non-SQL database options. Unfortunately, 
+I don’t see any obvious winner over my current use of PostgreSQL – there probably 
+is a better one for our particular needs but the cost, in time, of trying the 
+various options seems prohibitive.
+
+Thursday 5pm was my last session of the day, with a presentation on Experiment 
+Driven Development. The basic idea is that rather than relying on your best 
+guess, or your Marketing guy’s best guess about a new feature, you just test 
+both new ideas on actual users before committing to a definite plan of action. 
+He hasn’t put up any slides for his talk (he has a 1 month old baby at home) 
+so you’ll have to rely on my judgement that it was interesting. For me, it 
+means that I’ll be looking for opportunities to capture metrics to measure 
+user response to system changes. I expect the rest of the [ConFreaks’](http://rubyconf2009.confreaks.com/) 
+videos will be online in the next week or two.
+
+Rather than stay for the 8pm [Lightning Talks](http://blog.hasmanythrough.com/2009/11/20/rubyconf-2009-lightning-talks) 
+I went with my friend [Dan](http://twitter.com/dan) and his friends to a yummy 
+tapas restaurant in the Mission.
+
+Friday I learned more than I wanted to know about ongoing improvements to the 
+RubyGems system, partial evaluation of Ruby (pseudo JIT compilation) and an 
+alpha-level persistence layer called Aqua.
+
+At lunch on Friday (and again on Saturday), I watched a fun programming competition 
+to see which team could refactor a chunk of code better and faster. It was 
+all very subjective, but gave a real-world view into how pair programming actually 
+works and other people’s ideas on what makes for a consistent test-driven process. 
+
+Friday 2pm was a talk on the latest in [MacRuby](http://www.macruby.org/), 
+a very promising Ruby VM running on top of Objective-C using native objects 
+and garbage collection. It looks promising but I won’t play with it until the 
+0.5 release is officially out (any day now).
+
+Friday 3pm was Jim Weirich’s talk on SOLID Ruby that expanded on some ideas 
+about Object Oriented Programming that were [originally described by “Uncle 
+Bob”](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod). He is a good 
+speaker who really knows his topic so my high expectations were happily met. 
+
+Friday 4pm was a fun talk by the always-interesting creator of GitHub, Chris 
+Wanstrath, on what Rubyists can learn from Python.
+
+Friday evening I attended the [Startup Crawl](http://maps.google.com/maps/ms?ie=UTF8&hl=en&msa=0&msid=116134150482170869797.00047832bca7c11a7cb41&ll=37.790184,-122.412672&spn=0.045309,0.066261&z=14 
+"Map of Startup Crawl venues"), eating tasty food, drinking beer and meeting 
+a few people. [Scribd](http://www.scribd.com/) had the best food; [Heroku](http://heroku.com) 
+had the best ambiance (and one of their guys solved a technical problem I had 
+on one of my personal sites – nice bonus – instead of telling me to [RTFM](http://docs.heroku.com/rack)). 
+
+Saturday I woke a bit late but made it in time for the [Clojure](http://clojure.org/) 
+talk – it seems like a good language for concurrency, but not nearly as easy 
+to write as Ruby. Tim Bray has a nice [ongoing series of blog posts](http://www.tbray.org/ongoing/When/200x/2009/09/27/Concur-dot-next) 
+on various languages that focus on concurrency. He recently [delved](http://www.tbray.org/ongoing/When/200x/2009/10/26/Messaging) 
+[into](http://www.tbray.org/ongoing/When/200x/2009/11/11/Clojure-References) 
+[Clojure](http://www.tbray.org/ongoing/When/200x/2009/11/18/Clojure-Parallel-I-O) 
+and it looks [somewhat](http://www.tbray.org/ongoing/When/200x/2009/11/25/Clojure-grinding) 
+promising (but there is [no free lunch](http://www.tbray.org/ongoing/When/200x/2009/11/26/No-Free-Lunch)). 
+
+Saturday 11am I attended an interesting talk on scaling called  [_Synchronous 
+Reads, Asynchronous Writes_](http://www.pauldix.net/2009/11/resources-for-synchronous-reads-asynchronous-writes-at-rubyconf-2009.html). 
+Paul Dix went on at length on the various strategies his site has used to improve 
+performance by off-loading work to services that allow _eventual_ data consistency. 
+It looks like a fairly standard infrastructure once you get to a large number 
+of servers but it was good to hear the nitty gritty details discussed.
+
+My last session was Gregg Pollack’s discussion of  a number of performance-related 
+gems and plugins. It was essentially what he covers in his [screencasts](http://blog.envylabs.com/2009/11/scaling-rails/), 
+but since I hadn’t seen them it was well worth hearing it in person. I’ve now 
+subscribed to his [Ruby5 podcast ](http://ruby5.envylabs.com/)which I might 
+finally listen to on the train.
+
+All in all, it was a very good conference. I met, in person, a lot of interesting 
+people that I’d been following in various ways (twitter, blogs, RSS feeds, 
+etc.) and I’d love to go again next year – but I’ll try to get a ticket _when 
+_they go on sale instead of the night before!
+
+			
+			
+
+			[Permalink](http://www.johnbaylor.org/2009/11/30/rubyconf-2009/ "Permanent link to RubyConf 2009")
+						
+
+		
+		
+
+			
+		
+
+	
+
+##  1 Comment [»](#postcomment "Jump to the comments form")			 ## {#1Comment[»](#postcomment"Jumpcommentsform")}
+
+ 
+
+	
+
+1. 				
+[Jonathan Julian](http://jonathanjulian.com/) said,
+				
+November 30, 2009 at [1:11 pm](#comment-309 "Permanent link to this comment") 
+ 
+				
+				
+Thanks for the write-up. Those of us that couldn’t make it use your insights 
+to decide which confreaks videos to spend time watching!
+			
+
+## Leave a Comment ## {#LeaveaComment}
+
+	
+		
+
+		
+			
+
+			Name (required)
+			
+
+	
+			
+
+			E-mail (required)
+			
+
+	
+			
+
+			URI
+			
+
+		
+		
+
+		
+
+		
+
+		
+
+		
+		
+
+	
+	
+	
+
+
+
+
+</div>
