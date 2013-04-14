@@ -4,149 +4,47 @@ title: rails-drop-in-tooltiprb
 ---
 
 <div id="page">
-
-
-
-
-			
-		
-
-			
-
-# 08.05.07 # {#08.05.07}
-
  
-			
-
-## [Rails Drop-In: tooltip.rb](http://www.johnbaylor.org/2007/08/05/rails-drop-in-tooltiprb/ "Permanent link to Rails Drop-In: tooltip.rb") ## {#[RailsDrop-Intooltip.rb](http//www.johnbaylor.org/2007/08/05/rails-drop-in-tooltiprb/"PermanentlinkRailsDrop-Intooltip.rb")}
-
-			
-
-Posted in [ruby](http://www.johnbaylor.org/category/ruby/ "View all posts in 
-ruby") at 11:41 pm by JohnB
-
+			<h2 id="post-4" class="storytitle"><a href="http://www.johnbaylor.org/2007/08/05/rails-drop-in-tooltiprb/" rel="bookmark" title="Permanent link to Rails Drop-In: tooltip.rb">Rails Drop-In: tooltip.rb</a></h2>
+			<p class="meta">Posted in <a href="http://www.johnbaylor.org/category/ruby/" title="View all posts in ruby" rel="category tag">ruby</a> at 11:41 pm by JohnB</p>
 		
+			<p>I recently came across Davey Shafik’s nice little <a href="http://tooltip.crtx.org/">Tooltip.js script</a> – and I love it.  I love it so much that I’m adding it as context-sensitive help all over the site I’m building.  My needs are fairly simple: just some sort of pseudo-icon I can use next to any visual element to show that help or warning information is available.  Every aspect can (of course!) be styled any way you want it.</p>
+<p>To gain consistency and ease of use I wrote something that isn’t an actual Rails plug-in but is more of a… drop-in.  Just drop in three files and you’re ready to roll.  There are a few ways to add the tips to your views, but the easiest way is to just add</p>
+<pre>
+&lt;%= Tooltip.help name %&gt;</pre>
+<p>or</p>
+<pre>
+&lt;%= Tooltip.alert name %&gt;</pre>
+<p>to show a highlighted icon.  The ones I currently use are html pseudo-icons (<strong id="tooltip_activator_help" style="background-color: yellow; vertical-align: super">?</strong> for help and <strong id="tooltip_activator_remember_me" style="background-color: orange; vertical-align: super">!</strong> for warnings) but they can just as easily be image tags (and will be, as soon as I can find some appropriate icons).</p>
+<p>Finally, to get the tip data to be formatted into hidden divs you need to add this to the bottom of your view (or, ideally, your layout):</p>
+<pre>
+&lt;%= Tooltip.content %&gt;</pre>
+<p>Thats nearly all there is to it.  The only remaining task is to add these three files:</p>
+<table>
+<tr>
+<td>
+<pre><a href="http://tooltip.crtx.org/">public/javascripts/Tooltip.js</a></pre>
+</td>
+<td>Davey’s code.</td>
+</tr>
+<tr>
+<td>
+<pre>/lib/tooltip.rb</pre>
+</td>
+<td>My code.</td>
+</tr>
+<tr>
+<td>
+<pre>/config/tooltips.yaml</pre>
+</td>
+<td>Styles and the tip contents.</td>
+</tr>
+</table>
+<p>Eventually I’ll make it publicly available, but if you’d like a copy sooner just send me a note at my gmail address: john dot baylor.</p>
 			
-
-I recently came across Davey Shafik’s nice little [Tooltip.js script](http://tooltip.crtx.org/) 
-– and I love it. I love it so much that I’m adding it as context-sensitive 
-help all over the site I’m building. My needs are fairly simple: just some 
-sort of pseudo-icon I can use next to any visual element to show that help 
-or warning information is available. Every aspect can (of course!) be styled 
-any way you want it.
-
-To gain consistency and ease of use I wrote something that isn’t an actual 
-Rails plug-in but is more of a… drop-in. Just drop in three files and you’re 
-ready to roll. There are a few ways to add the tips to your views, but the 
-easiest way is to just add
-
-	
-	<%= Tooltip.help name %>
-
-or
-
-	
-	<%= Tooltip.alert name %>
-
-to show a highlighted icon. The ones I currently use are html pseudo-icons 
-(**?** for help and **!** for warnings) but they can just as easily be image 
-tags (and will be, as soon as I can find some appropriate icons).
-
-Finally, to get the tip data to be formatted into hidden divs you need to add 
-this to the bottom of your view (or, ideally, your layout):
-
-	
-	<%= Tooltip.content %>
-
-Thats nearly all there is to it. The only remaining task is to add these three 
-files:
-
-`[public/javascripts/Tooltip.js](http://tooltip.crtx.org/)`
-
-:   Davey’s code.
-
-`/lib/tooltip.rb`
-
-:   My code.
-
-`/config/tooltips.yaml`
-
-:   Styles and the tip contents.
-
-Eventually I’ll make it publicly available, but if you’d like a copy sooner 
-just send me a note at my gmail address: john dot baylor.
-
-			
-			
-
-			[Permalink](http://www.johnbaylor.org/2007/08/05/rails-drop-in-tooltiprb/ "Permanent link to Rails Drop-In: tooltip.rb")
-						
-
+			<p class="feedback">
+			<a href="http://www.johnbaylor.org/2007/08/05/rails-drop-in-tooltiprb/" rel="bookmark" title="Permanent link to Rails Drop-In: tooltip.rb" class="permalink">Permalink</a>
+						</p>
 		
 		
-
-			
-		
-
-	
-
-##  1 Comment [»](#postcomment "Jump to the comments form")			 ## {#1Comment[»](#postcomment"Jumpcommentsform")}
-
- 
-
-	
-
-1. 				
-[Preston Lee](http://www.prestonlee.com) said,
-				
-January 28, 2008 at [1:22 pm](#comment-8 "Permanent link to this comment") 
- 
-				
-				
-Do you know where the latest copy of Tooltip.js has moved to? The link leads 
-to a placeholder page ![:(](http://www.johnbaylor.org/wp-includes/images/smilies/icon_sad.gif) 
-			
-
-## Leave a Comment ## {#LeaveaComment}
-
-	
-		
-
-		
-			
-
-			Name (required)
-			
-
-	
-			
-
-			E-mail (required)
-			
-
-	
-			
-
-			URI
-			
-
-		
-		
-
-		
-
-		
-
-		
-
-		
-		
-
-	
-	
-	
-
-
-
-
 </div>

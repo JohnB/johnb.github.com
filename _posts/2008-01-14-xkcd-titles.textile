@@ -4,151 +4,44 @@ title: xkcd-titles
 ---
 
 <div id="page">
-
-
-
-
-			
-		
-
-			
-
-# 01.14.08 # {#01.14.08}
-
  
-			
-
-## [Xkcd Titles](http://www.johnbaylor.org/2008/01/14/xkcd-titles/ "Permanent link to Xkcd Titles") ## {#[XkcdTitles](http//www.johnbaylor.org/2008/01/14/xkcd-titles/"PermanentlinkXkcdTitles")}
-
-			
-
-Posted in [ruby](http://www.johnbaylor.org/category/ruby/ "View all posts in 
-ruby") at 1:26 pm by JohnB
-
+			<h2 id="post-20" class="storytitle"><a href="http://www.johnbaylor.org/2008/01/14/xkcd-titles/" rel="bookmark" title="Permanent link to Xkcd Titles">Xkcd Titles</a></h2>
+			<p class="meta">Posted in <a href="http://www.johnbaylor.org/category/ruby/" title="View all posts in ruby" rel="category tag">ruby</a> at 1:26 pm by JohnB</p>
 		
+			<p>I’ve just noticed the <a href="http://xkcd.com/249/" title="Yes, I play blindfold chess; it says so on my resume">geekily</a> <a href="http://xkcd.com/234/" title="You see, when unix gets confused by spaces, you can tell it to ignore the space by " escaping it with a backslash which is pun on... oh never mind>hilarious</a> <a href="http://xkcd.com/" title="Click the link, dummy!">xkcd comic</a> and one of the funniest aspects is that each comic has a ‘title’ attribute (the text that pops up when you hover your mouse over the image) that is often as funny as the comic itself.  However, the length of the title often causes it to be truncated in my browser (Firefox 2.x, which probably has an obscure show-entire-title setting).  Rather than arduously do a ‘view source’ on each one (or figure out the Firefox setting), I have Ruby do it for me.  And for <em>you</em> if you want:</p>
+<pre>
+# xkcd.rb
+# extract all the titles from xkcd comics since they
+# tend to be too long to fully show in the browser
+
+# USAGE: ruby -rubygems -rxkcd.rb -e 'Xkcd.new.show_all'
+
+require 'open-uri'
+require 'hpricot'
+
+class Xkcd
+  DOMAIN = 'http://xkcd.com/'
+
+  def show id = 343  # 343 is the NSA/RSA one
+    begin
+      @hp = Hpricot.parse( open( "%s/%d/" % [DOMAIN,id.to_i] ) )
+      (@hp / :img).each do |el|
+        puts "%4d: %s" % [id.to_i, el[:title]] if el[:title]
+      end
+    rescue
+    end
+  end
+
+  def show_all
+    0.upto(400) do |i|
+      show i
+    end
+  end
+end</pre>
 			
-
-I’ve just noticed the [geekily](http://xkcd.com/249/ "Yes, I play blindfold 
-chess; it says so on my resume") [hilarious](http://xkcd.com/234/ "You see, 
-when unix gets confused by spaces, you can tell it to ignore the space by ") 
-[xkcd comic](http://xkcd.com/ "Click the link, dummy!") and one of the funniest 
-aspects is that each comic has a ‘title’ attribute (the text that pops up when 
-you hover your mouse over the image) that is often as funny as the comic itself. 
-However, the length of the title often causes it to be truncated in my browser 
-(Firefox 2.x, which probably has an obscure show-entire-title setting). Rather 
-than arduously do a ‘view source’ on each one (or figure out the Firefox setting), 
-I have Ruby do it for me. And for _you_ if you want:
-
-	
-	# xkcd.rb
-	# extract all the titles from xkcd comics since they
-	# tend to be too long to fully show in the browser
-	
-	# USAGE: ruby -rubygems -rxkcd.rb -e 'Xkcd.new.show_all'
-	
-	require 'open-uri'
-	require 'hpricot'
-	
-	class Xkcd
-	  DOMAIN = 'http://xkcd.com/'
-	
-	  def show id = 343  # 343 is the NSA/RSA one
-	    begin
-	      @hp = Hpricot.parse( open( "%s/%d/" % [DOMAIN,id.to_i] ) )
-	      (@hp / :img).each do |el|
-	        puts "%4d: %s" % [id.to_i, el[:title]] if el[:title]
-	      end
-	    rescue
-	    end
-	  end
-	
-	  def show_all
-	    0.upto(400) do |i|
-	      show i
-	    end
-	  end
-	end
-			
-			
-
-			[Permalink](http://www.johnbaylor.org/2008/01/14/xkcd-titles/ "Permanent link to Xkcd Titles")
-						
-
+			<p class="feedback">
+			<a href="http://www.johnbaylor.org/2008/01/14/xkcd-titles/" rel="bookmark" title="Permanent link to Xkcd Titles" class="permalink">Permalink</a>
+						</p>
 		
 		
-
-			
-		
-
-	
-
-##  2 Comments [»](#postcomment "Jump to the comments form")			 ## {#2Comments[»](#postcomment"Jumpcommentsform")}
-
- 
-
-	
-
-1. 				
-Rocky Offner said,
-				
-January 25, 2008 at [1:08 pm](#comment-7 "Permanent link to this comment") 
- 
-				
-				
-While coding Ruby is surely more fun, you can download the Long Titles add-on for Firefox to fix the problem: [https://addons.mozilla.org/en-US/firefox/addon/1715/](https://addons.mozilla.org/en-US/firefox/addon/1715/)  
- -Rocky
-			
-2. 				
-[Bob](http://bmary.com) said,
-				
-April 15, 2008 at [9:46 am](#comment-10 "Permanent link to this comment") 
-				
-				
-Gee, I hadn’t noticed the title attribute on xkcd. Thanks, John. And thanks Rocky for the firefox addon. Hmmmm, ruby. maybe later.  
- Bob  
- still stuck in the land of C
-			
-
-## Leave a Comment ## {#LeaveaComment}
-
-	
-		
-
-		
-			
-
-			Name (required)
-			
-
-	
-			
-
-			E-mail (required)
-			
-
-	
-			
-
-			URI
-			
-
-		
-		
-
-		
-
-		
-
-		
-
-		
-		
-
-	
-	
-	
-
-
-
-
 </div>

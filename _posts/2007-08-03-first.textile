@@ -4,95 +4,16 @@ title: first
 ---
 
 <div id="page">
-
-
-
-
-			
-		
-
-			
-
-# 08.03.07 # {#08.03.07}
-
  
+			<h2 id="post-3" class="storytitle"><a href="http://www.johnbaylor.org/2007/08/03/first/" rel="bookmark" title="Permanent link to First!">First!</a></h2>
+			<p class="meta">Posted in <a href="http://www.johnbaylor.org/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a> at 10:52 pm by JohnB</p>
+		
+			<p>Sites like <a href="http://slashdot.org" title="slashdot" target="_blank">slashdot</a> post articles for users to comment on.  On a regular basis someone posts as soon as they can, just so they can claim the position of first post.  But I’m above all that.  I won’t sully such sites with my one-upmanship – I’ll do it on my own blog!  So there.</p>
+<p>First!</p>
 			
-
-## [First!](http://www.johnbaylor.org/2007/08/03/first/ "Permanent link to First!") ## {#[First!](http//www.johnbaylor.org/2007/08/03/first/"PermanentlinkFirst!")}
-
-			
-
-Posted in [Uncategorized](http://www.johnbaylor.org/category/uncategorized/ 
-"View all posts in Uncategorized") at 10:52 pm by JohnB
-
-		
-			
-
-Sites like [slashdot](http://slashdot.org "slashdot") post articles for users 
-to comment on. On a regular basis someone posts as soon as they can, just so 
-they can claim the position of first post. But I’m above all that. I won’t 
-sully such sites with my one-upmanship – I’ll do it on my own blog! So there. 
-
-First!
-
-			
-			
-
-			[Permalink](http://www.johnbaylor.org/2007/08/03/first/ "Permanent link to First!")
-						
-
+			<p class="feedback">
+			<a href="http://www.johnbaylor.org/2007/08/03/first/" rel="bookmark" title="Permanent link to First!" class="permalink">Permalink</a>
+						</p>
 		
 		
-
-			
-		
-
-	 
-				
-	
-
-	
-
-## Leave a Comment ## {#LeaveaComment}
-
-	
-		
-
-		
-			
-
-			Name (required)
-			
-
-	
-			
-
-			E-mail (required)
-			
-
-	
-			
-
-			URI
-			
-
-		
-		
-
-		
-
-		
-
-		
-
-		
-		
-
-	
-	
-	
-
-
-
-
 </div>

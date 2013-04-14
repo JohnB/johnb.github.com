@@ -4,127 +4,20 @@ title: rjs-error-typeerror-element-has-no-properties
 ---
 
 <div id="page">
-
-
-
-
-			
-		
-
-			
-
-# 09.21.07 # {#09.21.07}
-
  
-			
-
-## [RJS Error: TypeError: $(element) has no properties](http://www.johnbaylor.org/2007/09/21/rjs-error-typeerror-element-has-no-properties/ "Permanent link to RJS Error: TypeError: $(element) has no properties") ## {#[RJSErrorTypeError$(element)hasnoproperties](http//www.johnbaylor.org/2007/09/21/rjs-error-typeerror-element-has-no-properties/"PermanentlinkRJSErrorTypeError$(element)hasnoproperties")}
-
-			
-
-Posted in [ruby](http://www.johnbaylor.org/category/ruby/ "View all posts in 
-ruby") at 6:11 pm by JohnB
-
+			<h2 id="post-11" class="storytitle"><a href="http://www.johnbaylor.org/2007/09/21/rjs-error-typeerror-element-has-no-properties/" rel="bookmark" title="Permanent link to RJS Error: TypeError: $(element) has no properties">RJS Error: TypeError: $(element) has no properties</a></h2>
+			<p class="meta">Posted in <a href="http://www.johnbaylor.org/category/ruby/" title="View all posts in ruby" rel="category tag">ruby</a> at 6:11 pm by JohnB</p>
 		
+			<p>I received this error message late yesterday while testing out RJS templates and link_to_remote().  I did a google search and didn’t find anything useful – some questions that were asked and never answered; one that said “rebuild your entire app”.  Finally, I opened the page in another browser and it worked fine.  huh?</p>
+<p>doh!  Rails nearly-seamless simplicity strikes again!</p>
+<p>I had just changed my view code (.rhtml file) to include a new div that I wanted to be updated in an AJAXy manner.  So I clicked the link in the browser (remember: this is AJAX – no page refresh) and expected my new div to be replaced with the neat new content.  Nope.  I had to do a decidedly non-AJAX page refresh so my browser would now <em>have</em> the neat new div – only then could the div be replaced.</p>
+<p>Its so simple to swap between edit and test, edit and test, edit and test, that the few times you’re required to step out of the cycle seem like a huge hassle.  But not when compared to every <em>other</em>  development process I’ve used.</p>
+<p>I had a similar experience with the routes.rb file.  Unlike models and controllers and non-AJAX views, the routes.rb file only gets loaded when the web server starts.  Stopping and starting the server fixed the problem – but I think I had to run into it multiple times before I realized what the issue was.  A minor pot-hole on the smooth Rails path.</p>
+<p>To mis-quote a bumper sticker: the worst day coding Ruby is better than the best day fighting C++.</p>
 			
-
-I received this error message late yesterday while testing out RJS templates 
-and link_to_remote(). I did a google search and didn’t find anything useful 
-– some questions that were asked and never answered; one that said “rebuild 
-your entire app”. Finally, I opened the page in another browser and it worked 
-fine. huh?
-
-doh! Rails nearly-seamless simplicity strikes again!
-
-I had just changed my view code (.rhtml file) to include a new div that I wanted 
-to be updated in an AJAXy manner. So I clicked the link in the browser (remember: 
-this is AJAX – no page refresh) and expected my new div to be replaced with 
-the neat new content. Nope. I had to do a decidedly non-AJAX page refresh so 
-my browser would now _have_ the neat new div – only then could the div be replaced. 
-
-Its so simple to swap between edit and test, edit and test, edit and test, 
-that the few times you’re required to step out of the cycle seem like a huge 
-hassle. But not when compared to every _other_ development process I’ve used. 
-
-I had a similar experience with the routes.rb file. Unlike models and controllers 
-and non-AJAX views, the routes.rb file only gets loaded when the web server 
-starts. Stopping and starting the server fixed the problem – but I think I 
-had to run into it multiple times before I realized what the issue was. A minor 
-pot-hole on the smooth Rails path.
-
-To mis-quote a bumper sticker: the worst day coding Ruby is better than the 
-best day fighting C++.
-
-			
-			
-
-			[Permalink](http://www.johnbaylor.org/2007/09/21/rjs-error-typeerror-element-has-no-properties/ "Permanent link to RJS Error: TypeError: $(element) has no properties")
-						
-
+			<p class="feedback">
+			<a href="http://www.johnbaylor.org/2007/09/21/rjs-error-typeerror-element-has-no-properties/" rel="bookmark" title="Permanent link to RJS Error: TypeError: $(element) has no properties" class="permalink">Permalink</a>
+						</p>
 		
 		
-
-			
-		
-
-	
-
-##  1 Comment [»](#postcomment "Jump to the comments form")			 ## {#1Comment[»](#postcomment"Jumpcommentsform")}
-
- 
-
-	
-
-1. 				
-Dik said,
-				
-August 24, 2008 at [6:48 pm](#comment-64 "Permanent link to this comment") 
- 
-				
-				
-Informative. I like it. [](http://bride-makeup.ru)Will it be continued?
-			
-
-## Leave a Comment ## {#LeaveaComment}
-
-	
-		
-
-		
-			
-
-			Name (required)
-			
-
-	
-			
-
-			E-mail (required)
-			
-
-	
-			
-
-			URI
-			
-
-		
-		
-
-		
-
-		
-
-		
-
-		
-		
-
-	
-	
-	
-
-
-
-
 </div>

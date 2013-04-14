@@ -4,222 +4,90 @@ title: u
 ---
 
 <div id="page">
-
-
-
-
-			
-		
-
-			
-
-# 02.27.08 # {#02.27.08}
-
  
+			<h2 id="post-29" class="storytitle"><a href="http://www.johnbaylor.org/2008/02/27/u/" rel="bookmark" title="Permanent link to unpack!">unpack!</a></h2>
+			<p class="meta">Posted in <a href="http://www.johnbaylor.org/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a>, <a href="http://www.johnbaylor.org/category/ruby/" title="View all posts in ruby" rel="category tag">ruby</a> at 12:54 am by JohnB</p>
+		
+			<p>[Update 10/11/2009: I just found a better tool, <a href="http://bindata.rubyforge.org/">bindata</a>, to do what I'm describing in this post. It also lists, at the bottom of the page, many links to yet other implementations of binary data packing/unpacking. Worth checking out if this is what you need.]</p>
+<p>[Update: presentation from the <a href="http://ruby.meetup.com/81/calendar/7577430/" target="_blank">4/15/2008 Ruby Meetup</a> is now available <a href="http://docs.google.com/Presentation?id=ad9wfpzzrhx_46fnbpqrgx" target="_blank">here</a>.]</p>
+<p>I like reading code. Its like a novel and I want to read it cover-to-cover. Some, such as <a title="why not" href="http://en.wikipedia.org/wiki/Why_the_lucky_stiff">Why’s</a> <a title="The full source code, with many many comments." href="http://github.com/camping/camping/blob/master/lib/camping-unabridged.rb">Camping framework</a>, I struggle to comprehend. But most code that I read comes up slightly short. Like a novel with some mis-spellings, awkward phrasing or repeated analogies, I mentally mark it as “could be better”. And sometimes I really do sit down and write something better – maybe just for my own amusement but often for a useful purpose.</p>
+<p>I recently had the experience of reading some code that parsed a variable-length binary data structure. This sort of thing comes up often when parsing a file format or communications protocol. Most of the code looks fairly similar because it does similar stuff: ignore one byte, read the next four as the length of the following junk, read two important bytes, ignore two more, read another four-byte length and skip past the following N bytes – ad nauseum.</p>
+<p>I’ve written it in C, and it looks something like this (ignoring error conditions like getting to the end of the buffer):</p>
+<pre>ptr = &amp;data;                  // start at the beginning of our data
+ptr++;                        // skip junk we don't care about
+UInt32 len = *(UInt32 *) ptr; // get the 4-byte length
+len = ntohl(len);             // convert from network byte ordering
+ptr += sizeof(UInt32);        // skip past the length we just read
+ptr += len;                   // skip past the data we don't care about
+UInt16 cost = *(UInt16 *)ptr; // read our important two bytes
+cost = ntohs(cost);           // convert to the correct byte ordering</pre>
+<p>In Ruby, this tends to be shorter due to the handy String.unpack() routine, which takes a concise format string to define how many bytes to read and what to do with them. “a3″ reads 3 bytes as a string, “N” reads 4 bytes in network order, “n” reads 2 bytes in network order, etc. The code above could be rewritten in Ruby like this:</p>
+<pre><span class="ident">array</span> <span class="punct">=</span> <span class="ident">data</span><span class="punct">.</span><span class="ident">unpack</span><span class="punct">(</span> <span class="punct">"</span><span class="string">a1N</span><span class="punct">")</span>        <span class="comment"># read the junk and the 4 length bytes</span>
+<span class="ident">len</span> <span class="punct">=</span> <span class="ident">array</span><span class="punct">[</span><span class="number">1</span><span class="punct">]</span>                     <span class="comment"># only get the length value we care about</span>
+<span class="ident">data</span> <span class="punct">=</span> <span class="ident">data</span><span class="punct">[</span><span class="number">5</span><span class="punct">..-</span><span class="number">1</span><span class="punct">]</span>                 <span class="comment"># throw away the stuff we just read</span>
+<span class="ident">array</span> <span class="punct">=</span>  <span class="ident">data</span><span class="punct">.</span><span class="ident">unpack</span><span class="punct">(</span> <span class="punct">"</span><span class="string">a<span class="expr">#{len}</span>n</span><span class="punct">"</span> <span class="punct">)</span> <span class="comment"># define the length to read on the fly</span>
+<span class="ident">cost</span> <span class="punct">=</span> <span class="ident">array</span><span class="punct">[</span><span class="number">1</span><span class="punct">]</span>                    <span class="comment"># get our data in its correct ordering</span>
+<span class="ident">data</span> <span class="punct">=</span> <span class="ident">data</span><span class="punct">[(</span><span class="ident">len</span><span class="punct">+</span><span class="number">2</span><span class="punct">)..-</span><span class="number">1</span><span class="punct">]</span>           <span class="comment"># again, throw away what we just read</span></pre>
+<p>This code works fine, but its not much more readable than the C code. A first step would be do define a string.unpack!() routine, where the ‘!’ exclamation clues us in that it modifies the object we’re working with. In this case, the modification is to <span style="font-style: italic">eat</span> (discard) the data we just read. This shortens the code to:</p>
+<pre><span class="ident">array</span> <span class="punct">=</span> <span class="ident">data</span><span class="punct">.</span><span class="ident">unpack!</span><span class="punct">(</span> <span class="punct">"</span><span class="string">a1N</span><span class="punct">")</span>       <span class="comment"># read the junk and the 4 length bytes</span>
+<span class="ident">len</span> <span class="punct">=</span> <span class="ident">array</span><span class="punct">[</span><span class="number">1</span><span class="punct">]</span>                     <span class="comment"># only get the length value we care about</span>
+<span class="ident">array</span> <span class="punct">=</span>  <span class="ident">data</span><span class="punct">.</span><span class="ident">unpack!</span><span class="punct">("</span><span class="string">a<span class="expr">#{len}</span>n</span><span class="punct">")</span>  <span class="comment"># define the length to read on the fly</span>
+<span class="ident">cost</span> <span class="punct">=</span> <span class="ident">array</span><span class="punct">[</span><span class="number">1</span><span class="punct">]</span>                    <span class="comment"># get our data in its correct ordering</span></pre>
+<p>But again, this isn’t much more readable (in my opinion) than the C code. Additionally, it doesn’t help us understand the code much better in the case where our format string is “a3Nna5″ and we need to remember which item in ‘array’ corresponds to the ‘n’ in the string (in this case, it is array[2]). After a test iteration or two, what I finally hit upon was to encapsulate the behavior we want in a separare Unpacker class, that automatically eats the data it reads and stores the results in an internal Hash object, to map the name ‘len’ or ‘cost’ to the data. I also combined the format string and the resulting variable so we can clearly see the relationships. The result looks like this:</p>
+<pre><span class="ident">u</span> <span class="punct">=</span> <span class="constant">Unpacker</span><span class="punct">.</span><span class="ident">new</span><span class="punct">(</span><span class="ident">data</span><span class="punct">)</span>
+<span class="ident">u</span><span class="punct">.</span><span class="ident">u!</span> <span class="punct">"</span><span class="string">a1        =&gt; unused
+      N         =&gt; len</span><span class="punct">"</span>
+<span class="ident">u</span><span class="punct">.</span><span class="ident">u!</span> <span class="punct">"</span><span class="string">a<span class="expr">#{u.len}</span> =&gt; unused
+      n         =&gt; cost</span><span class="punct">"</span></pre>
+<p>Now we can clearly see which values are ignored, which are given meaningful names, and how the format codes relate to the meaning of the data. Changing it to reflect a better understanding of the underlying data will be very easy. Note that the only reason its in two statements is to define a value for u.len before we use it – blocks of fixed-length data can be one statement.</p>
+<p>The code to implement the Unpacker class is only about 30 lines of Ruby – including the string.unpack!() routine that can be reused separately.</p>
+<pre><span class="keyword">class </span><span class="class">String</span>
+  <span class="keyword">def </span><span class="method">unpack!</span> <span class="ident">format</span>
+     <span class="ident">array</span> <span class="punct">=</span> <span class="constant">self</span><span class="punct">.</span><span class="ident">unpack</span><span class="punct">(</span><span class="ident">format</span><span class="punct">+"</span><span class="string">a*</span><span class="punct">")</span>
+    <span class="constant">self</span><span class="punct">.</span><span class="ident">replace</span> <span class="ident">array</span><span class="punct">.</span><span class="ident">pop</span>
+     <span class="keyword">return</span> <span class="ident">array</span>
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="keyword">class </span><span class="class">Unpacker</span> <span class="punct">&lt;</span> <span class="constant">Hash</span>
+   <span class="ident">attr_reader</span> <span class="symbol">:data</span>
+ <span class="keyword">def </span><span class="method">initialize</span> <span class="ident">string</span>
+     <span class="attribute">@data</span> <span class="punct">=</span> <span class="ident">string</span>
+    <span class="keyword">super</span>
+  <span class="keyword">end</span>
+  <span class="comment"># format string is expected to have whitespace between each</span>
+  <span class="comment"># "unpackCode=&gt;variableName" pairing (which can have whitespace</span>
+  <span class="comment"># around the "=&gt;").  u! was picked to be short so it would</span>
+  <span class="comment"># look nice, and to connote a destructive "unpack!" operation.</span>
+  <span class="keyword">def </span><span class="method">u!</span> <span class="ident">format</span>
+    <span class="ident">format</span><span class="punct">.</span><span class="ident">gsub</span><span class="punct">(/</span><span class="regex"><span class="escape">\s</span>*=&gt;<span class="escape">\s</span>*</span><span class="punct">/,'</span><span class="string">=&gt;</span><span class="punct">').</span><span class="ident">strip</span><span class="punct">.</span><span class="ident">split</span><span class="punct">(/</span><span class="regex"><span class="escape">\s</span>+</span><span class="punct">/).</span><span class="ident">each</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">segment</span><span class="punct">|</span>
+    <span class="ident">src</span><span class="punct">,</span><span class="ident">dst</span> <span class="punct">=</span> <span class="ident">segment</span><span class="punct">.</span><span class="ident">split</span><span class="punct">(/</span><span class="regex">=&gt;</span><span class="punct">/)</span>
+    <span class="constant">self</span><span class="punct">[</span><span class="ident">dst</span><span class="punct">]</span> <span class="punct">=</span> <span class="attribute">@data</span><span class="punct">.</span><span class="ident">unpack!</span><span class="punct">("</span><span class="string"><span class="expr">#{src}</span></span><span class="punct">")[</span><span class="number">0</span><span class="punct">]</span>
+ <span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="comment"># Hash_with_Attrs - For the simplicity of using either u.len or u['len'],</span>
+<span class="comment"># makes a hash appear to have members for each hash entry. Many thanks</span>
+<span class="comment"># to Why_ for collecting this handy routine on his a href= RedHanded blog.</span>
+<span class="comment"># Note of Caution: 'len' is fine but 'length' would not be since u.length</span>
+<span class="comment"># would give the number of entries in the hash, not the just-parsed value.</span>
+<span class="keyword">def </span><span class="method">method_missing</span><span class="punct">(</span><span class="ident">meth</span><span class="punct">,*</span><span class="ident">args</span><span class="punct">)</span>
+  <span class="ident">meth</span> <span class="punct">=</span> <span class="ident">meth</span><span class="punct">.</span><span class="ident">id2name</span>
+  <span class="keyword">if</span> <span class="ident">meth</span> <span class="punct">=~</span> <span class="punct">/</span><span class="regex">=$</span><span class="punct">/</span>
+    <span class="constant">self</span><span class="punct">[</span><span class="ident">meth</span><span class="punct">[</span><span class="number">0</span><span class="punct">..-</span><span class="number">2</span><span class="punct">]]</span> <span class="punct">=</span> <span class="punct">(</span><span class="ident">args</span><span class="punct">.</span><span class="ident">length</span><span class="punct">&lt;</span><span class="number">2</span> <span class="punct">?</span> <span class="ident">args</span><span class="punct">[</span><span class="number">0</span><span class="punct">]</span> <span class="punct">:</span> <span class="ident">args</span><span class="punct">)</span>
+  <span class="keyword">else</span>
+    <span class="constant">self</span><span class="punct">[</span><span class="ident">meth</span><span class="punct">]</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="keyword">end</span></pre>
+<p>Update: <em>An even cleaner and shorter way would be to implement a <a href="http://en.wikipedia.org/wiki/Domain-specific_programming_language">DSL</a> as a module so the code above could look like this:</em></p>
+<pre><span class="ident">a</span> <span class="number">1</span><span class="punct">,</span>    <span class="symbol">:unused</span>
+<span class="constant">N</span>       <span class="symbol">:len</span>
+<span class="ident">a</span> <span class="symbol">:len</span><span class="punct">,</span> <span class="symbol">:unused</span>
+<span class="ident">n</span>       <span class="symbol">:cost</span></pre>
+<p><em>(and yes, this is valid Ruby code)</em></p>
 			
-
-## [unpack!](http://www.johnbaylor.org/2008/02/27/u/ "Permanent link to unpack!") ## {#[unpack!](http//www.johnbaylor.org/2008/02/27/u/"Permanentlinkunpack!")}
-
-			
-
-Posted in [Uncategorized](http://www.johnbaylor.org/category/uncategorized/ 
-"View all posts in Uncategorized"), [ruby](http://www.johnbaylor.org/category/ruby/ 
-"View all posts in ruby") at 12:54 am by JohnB
-
-		
-			
-
-[Update 10/11/2009: I just found a better tool, [bindata](http://bindata.rubyforge.org/), 
-to do what I'm describing in this post. It also lists, at the bottom of the 
-page, many links to yet other implementations of binary data packing/unpacking. 
-Worth checking out if this is what you need.]
-
-[Update: presentation from the [4/15/2008 Ruby Meetup](http://ruby.meetup.com/81/calendar/7577430/) 
-is now available [here](http://docs.google.com/Presentation?id=ad9wfpzzrhx_46fnbpqrgx).] 
-
-I like reading code. Its like a novel and I want to read it cover-to-cover. 
-Some, such as [Why’s](http://en.wikipedia.org/wiki/Why_the_lucky_stiff "why 
-not") [Camping framework](http://github.com/camping/camping/blob/master/lib/camping-unabridged.rb 
-"The full source code, with many many comments."), I struggle to comprehend. 
-But most code that I read comes up slightly short. Like a novel with some mis-spellings, 
-awkward phrasing or repeated analogies, I mentally mark it as “could be better”. 
-And sometimes I really do sit down and write something better – maybe just 
-for my own amusement but often for a useful purpose.
-
-I recently had the experience of reading some code that parsed a variable-length 
-binary data structure. This sort of thing comes up often when parsing a file 
-format or communications protocol. Most of the code looks fairly similar because 
-it does similar stuff: ignore one byte, read the next four as the length of 
-the following junk, read two important bytes, ignore two more, read another 
-four-byte length and skip past the following N bytes – ad nauseum.
-
-I’ve written it in C, and it looks something like this (ignoring error conditions 
-like getting to the end of the buffer):
-
-	ptr = &data;                  // start at the beginning of our data
-	ptr++;                        // skip junk we don't care about
-	UInt32 len = *(UInt32 *) ptr; // get the 4-byte length
-	len = ntohl(len);             // convert from network byte ordering
-	ptr += sizeof(UInt32);        // skip past the length we just read
-	ptr += len;                   // skip past the data we don't care about
-	UInt16 cost = *(UInt16 *)ptr; // read our important two bytes
-	cost = ntohs(cost);           // convert to the correct byte ordering
-
-In Ruby, this tends to be shorter due to the handy String.unpack() routine, 
-which takes a concise format string to define how many bytes to read and what 
-to do with them. “a3″ reads 3 bytes as a string, “N” reads 4 bytes in network 
-order, “n” reads 2 bytes in network order, etc. The code above could be rewritten 
-in Ruby like this:
-
-	array = data.unpack( "a1N")        # read the junk and the 4 length bytes
-	len = array[1]                     # only get the length value we care about
-	data = data[5..-1]                 # throw away the stuff we just read
-	array =  data.unpack( "a#{len}n" ) # define the length to read on the fly
-	cost = array[1]                    # get our data in its correct ordering
-	data = data[(len+2)..-1]           # again, throw away what we just read
-
-This code works fine, but its not much more readable than the C code. A first 
-step would be do define a string.unpack!() routine, where the ‘!’ exclamation 
-clues us in that it modifies the object we’re working with. In this case, the 
-modification is to eat (discard) the data we just read. This shortens the code 
-to:
-
-	array = data.unpack!( "a1N")       # read the junk and the 4 length bytes
-	len = array[1]                     # only get the length value we care about
-	array =  data.unpack!("a#{len}n")  # define the length to read on the fly
-	cost = array[1]                    # get our data in its correct ordering
-
-But again, this isn’t much more readable (in my opinion) than the C code. Additionally, 
-it doesn’t help us understand the code much better in the case where our format 
-string is “a3Nna5″ and we need to remember which item in ‘array’ corresponds 
-to the ‘n’ in the string (in this case, it is array[2]). After a test iteration 
-or two, what I finally hit upon was to encapsulate the behavior we want in 
-a separare Unpacker class, that automatically eats the data it reads and stores 
-the results in an internal Hash object, to map the name ‘len’ or ‘cost’ to 
-the data. I also combined the format string and the resulting variable so we 
-can clearly see the relationships. The result looks like this:
-
-	u = Unpacker.new(data)
-	u.u! "a1        => unused
-	      N         => len"
-	u.u! "a#{u.len} => unused
-	      n         => cost"
-
-Now we can clearly see which values are ignored, which are given meaningful 
-names, and how the format codes relate to the meaning of the data. Changing 
-it to reflect a better understanding of the underlying data will be very easy. 
-Note that the only reason its in two statements is to define a value for u.len 
-before we use it – blocks of fixed-length data can be one statement.
-
-The code to implement the Unpacker class is only about 30 lines of Ruby – including 
-the string.unpack!() routine that can be reused separately.
-
-	class String
-	  def unpack! format
-	     array = self.unpack(format+"a*")
-	    self.replace array.pop
-	     return array
-	   end
-	end
-	class Unpacker < Hash
-	   attr_reader :data
-	 def initialize string
-	     @data = string
-	    super
-	  end
-	  # format string is expected to have whitespace between each
-	  # "unpackCode=>variableName" pairing (which can have whitespace
-	  # around the "=>").  u! was picked to be short so it would
-	  # look nice, and to connote a destructive "unpack!" operation.
-	  def u! format
-	    format.gsub(/\s*=>\s*/,'=>').strip.split(/\s+/).each do |segment|
-	    src,dst = segment.split(/=>/)
-	    self[dst] = @data.unpack!("#{src}")[0]
-	 end
-	end
-	# Hash_with_Attrs - For the simplicity of using either u.len or u['len'],
-	# makes a hash appear to have members for each hash entry. Many thanks
-	# to Why_ for collecting this handy routine on his a href= RedHanded blog.
-	# Note of Caution: 'len' is fine but 'length' would not be since u.length
-	# would give the number of entries in the hash, not the just-parsed value.
-	def method_missing(meth,*args)
-	  meth = meth.id2name
-	  if meth =~ /=$/
-	    self[meth[0..-2]] = (args.length<2 ? args[0] : args)
-	  else
-	    self[meth]
-	  end
-	end
-	end
-
-Update: _An even cleaner and shorter way would be to implement a [DSL](http://en.wikipedia.org/wiki/Domain-specific_programming_language) 
-as a module so the code above could look like this:_
-
-	a 1,    :unused
-	N       :len
-	a :len, :unused
-	n       :cost
-
-_(and yes, this is valid Ruby code)_
-
-			
-			
-
-			[Permalink](http://www.johnbaylor.org/2008/02/27/u/ "Permanent link to unpack!")
-						
-
+			<p class="feedback">
+			<a href="http://www.johnbaylor.org/2008/02/27/u/" rel="bookmark" title="Permanent link to unpack!" class="permalink">Permalink</a>
+						</p>
 		
 		
-
-			
-		
-
-	 
-				
-	
-
-	
-
-## Leave a Comment ## {#LeaveaComment}
-
-	
-		
-
-		
-			
-
-			Name (required)
-			
-
-	
-			
-
-			E-mail (required)
-			
-
-	
-			
-
-			URI
-			
-
-		
-		
-
-		
-
-		
-
-		
-
-		
-		
-
-	
-	
-	
-
-
-
-
 </div>

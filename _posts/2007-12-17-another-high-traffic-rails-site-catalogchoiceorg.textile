@@ -4,94 +4,17 @@ title: another-high-traffic-rails-site-catalogchoiceorg
 ---
 
 <div id="page">
-
-
-
-
-			
-		
-
-			
-
-# 12.17.07 # {#12.17.07}
-
  
+			<h2 id="post-18" class="storytitle"><a href="http://www.johnbaylor.org/2007/12/17/another-high-traffic-rails-site-catalogchoiceorg/" rel="bookmark" title="Permanent link to Another High-Traffic Rails Site: catalogchoice.org">Another High-Traffic Rails Site: catalogchoice.org</a></h2>
+			<p class="meta">Posted in <a href="http://www.johnbaylor.org/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a> at 6:12 pm by JohnB</p>
+		
+			<p>Its getting a lot of traffic and seems pretty snappy:</p>
+<p><a href="http://www.catalogchoice.org/" title="catalogchoice.org">http://www.catalogchoice.org/</a></p>
+<p>So yes, Virginia, Ruby and Rails do scale.</p>
 			
-
-## [Another High-Traffic Rails Site: catalogchoice.org](http://www.johnbaylor.org/2007/12/17/another-high-traffic-rails-site-catalogchoiceorg/ "Permanent link to Another High-Traffic Rails Site: catalogchoice.org") ## {#[AnotherHigh-TrafficRailsSitecatalogchoice.org](http//www.johnbaylor.org/2007/12/17/another-high-traffic-rails-site-catalogchoiceorg/"PermanentlinkAnotherHigh-TrafficRailsSitecatalogchoice.org")}
-
-			
-
-Posted in [Uncategorized](http://www.johnbaylor.org/category/uncategorized/ 
-"View all posts in Uncategorized") at 6:12 pm by JohnB
-
-		
-			
-
-Its getting a lot of traffic and seems pretty snappy:
-
-[http://www.catalogchoice.org/](http://www.catalogchoice.org/ "catalogchoice.org") 
-
-So yes, Virginia, Ruby and Rails do scale.
-
-			
-			
-
-			[Permalink](http://www.johnbaylor.org/2007/12/17/another-high-traffic-rails-site-catalogchoiceorg/ "Permanent link to Another High-Traffic Rails Site: catalogchoice.org")
-						
-
+			<p class="feedback">
+			<a href="http://www.johnbaylor.org/2007/12/17/another-high-traffic-rails-site-catalogchoiceorg/" rel="bookmark" title="Permanent link to Another High-Traffic Rails Site: catalogchoice.org" class="permalink">Permalink</a>
+						</p>
 		
 		
-
-			
-		
-
-	 
-				
-	
-
-	
-
-## Leave a Comment ## {#LeaveaComment}
-
-	
-		
-
-		
-			
-
-			Name (required)
-			
-
-	
-			
-
-			E-mail (required)
-			
-
-	
-			
-
-			URI
-			
-
-		
-		
-
-		
-
-		
-
-		
-
-		
-		
-
-	
-	
-	
-
-
-
-
 </div>
