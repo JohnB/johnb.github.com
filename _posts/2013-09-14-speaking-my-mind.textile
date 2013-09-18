@@ -5,7 +5,7 @@ title: Speaking My Mind
 
 h1. {{ page.title }}
 
-I just read https://opensource.com/life/13/8/stealing-ideas and it struck a chord. I have, over the course of years, had ideas for software and hardware and stories and art that I've never shown to anyone for fear that they might steal my idea. Or they might see it in an unfinished state. And, in his insightful post,  Daniel Solis points out the hubris and stupidity and laziness inherent in this thinking.
+I just read <a href="https://opensource.com/life/13/8/stealing-ideas">Stealing Ideas</a> and it struck a chord. I have, over the course of years, had ideas for software and hardware and stories and art that I've never shown to anyone for fear that they might steal my idea. Or they might see it in an unfinished state. And, in his insightful post,  Daniel Solis points out the hubris and stupidity and laziness inherent in this thinking.
 
 So, I will start blogging my ideas, in their unfinished state - and see what happens.
 
