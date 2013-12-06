@@ -2,7 +2,7 @@ var Poker = {
   current_date: '-date-goes-here-',
   usual_suspects: [
     'BobS', 'BrianE', 'ChrisH', 'ChrisR', 'DavidR',  'DavidW',  'EJ',  'GordonC',  'HughB',
-    'JayN',  'JohnB',  'JohnH',  'MarkF',  'OtisW',  'SteveF', 'X1', 'X2'
+    'JayN',  'JohnB',  'JohnH', 'KeithK', 'MarkF',  'OtisW',  'SteveF', 'X1', 'X2'
   ],
   players: {}, // {player_name: exact_payout}
   current_player: '',
