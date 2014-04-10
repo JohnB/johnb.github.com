@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PSA: Change All Your Passwords
+title: "PSA: Change All Your Passwords"
 ---
 
 h1. {{ page.title }}
