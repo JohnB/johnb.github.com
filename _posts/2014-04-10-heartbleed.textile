@@ -1,0 +1,22 @@
+---
+layout: default
+title: PSA: Change All Your Passwords
+---
+
+h1. {{ page.title }}
+
+I write web sites for a living and can tell you that the recent "heartbleed" security hole is very very serious. Here are the steps that I am taking to mitigate my risk - I suggest others do the same.
+
+h2. Make a List. Check it Twice
+
+Make a list of all the sites you use, and that your smartphone or tablet uses. Keep it around for the next time this sort of thing happens (although a bug of this magnitude is rare). My list has about 50 different sites on it - yours is probably shorter. Yes, this is tedious, but it is important.
+
+h2. Have a Plan
+Figure out a strategy for your passwords so you can use a different password on every site. For example, I might use "John2014Apple!" on one iTunes and "John2014Google!" for GMail. This way, if one site loses all its passwords, the attackers don't get immediate access to the other web sites you use.
+
+h2. Check Each Site
+This step is somewhat optional, since most major sites have already closed the barn door on this security hole. But if you're not sure, check each site against a tool, such as http://filippo.io/Heartbleed/ , that tries to see whether it is vulnerable or not. Beware that the results are sometimes inconclusive so check the site's FAQ page or blog to see what they say about HeartBleed - if they don't say anything then you should be worried.
+
+h2. Change Your Password 
+Change each password to one that matches your strategy. Now you never have to write down your password or use the same one twice - just follow your strategy.
+
