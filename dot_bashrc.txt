@@ -1,0 +1,79 @@
+# Useful bash snippets and aliases
+#
+
+mkcd() {
+	mkdir $1
+	pushd $1
+}
+
+cat_or_ls() { 
+	if [ -f "$1" ]
+	then
+		less -RF $1
+	else
+		ls -al $1
+	fi
+}
+
+push_or_pop() {	if [ "$1" = "" ]
+	then
+		popd
+	else
+		pushd $1
+	fi
+}
+parse_git_branch() {
+  # TODO: find a git command that will give me this directly, instead of needing sed
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# Useful "git lp" alias
+# git config --global alias.lp  "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+alias aa='alias | sort'
+alias aliases='source ~/.bashrc'
+alias be='bundle exec '
+alias branch='git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3'
+# for Rails 2; use "rails c" for Rails 3
+alias console='script/console'
+alias cpwd='pwd | pbcopy'
+alias d='ls -al'
+alias dbconsole='ruby script/dbconsole -p'
+alias ddp='ddp-analyzer-proxy'
+alias dt='ls -alrt'
+alias e='vi'
+alias ee='vi ~/.bashrc'
+alias fetch='echo "git fetch"; git fetch'
+alias flush_dns_cache='dscacheutil -flushcache'
+alias g="git $*"
+alias gg="grep $*"
+alias ghost="cat /etc/hosts | grep $*"
+alias gl='git lp | head'
+alias glall='git log --glob=* --decorate --graph --pretty=format:"%h %ae %d %s %N" --abbrev-commit'
+alias h='history 60'
+alias hh='history 60 | cut -c 8-'
+alias ip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 "
+alias irs="curl http://www.irs.gov/pub/irs-soi/ | grep -A 3 eo1.csv | cut -c 85-146"
+alias l='less -R '
+alias lol='git log --graph --decorate --pretty=format:"%h %ae %d %s %N" --abbrev-commit'
+alias pd=push_or_pop
+alias pop='g stash pop'
+alias pull='echo "git pull origin `branch`"; g pull origin `branch`'
+alias push='echo "git push origin `branch`"; g push origin `branch`'
+alias redis-server="redis-server /usr/local/etc/redis.conf"
+alias redis-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias rr='rake 2>/dev/null'
+alias ruby2='/usr/local/Cellar/ruby/2.0.0-p0/bin/ruby'
+alias s='cat_or_ls'
+alias serve='ruby script/server'
+alias sim='open /Applications/iOS\ Simulator'
+alias squash='git rebase -i HEAD~2'
+alias st='g st'
+alias t='cat'
+alias tf="tail -f "
+
+PS1='$(parse_git_branch) \t \w > '
+
+# Fix the "too many open files" error when running R2 functional tests
+#ulimit -n 1200
+
