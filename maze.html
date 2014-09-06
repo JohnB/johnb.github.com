@@ -55,7 +55,7 @@
           return status;
         },
         remove_side: function(side) {
-          this.sides.replace(side,'');
+          this.sides = this.sides.replace(side,'');
         },
         to_html: function() {
           return '<td id="'+this.id()+'" style="" class="'+this.wall_status()+'">&nbsp;</td>\n';
@@ -80,7 +80,7 @@
               right: 'left',
               top: 'bottom',
               bottom: 'top'
-            }
+            };
             this_obj.remove_side(side);
             neighbor.remove_side(opposites[side]);
           }
