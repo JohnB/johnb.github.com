@@ -9,7 +9,7 @@
   }
 
   td {
-    border: 1px solid #FFF;
+    border: 1px solid #FFD;
     width: 30px;
     height: 30px;
     text-align: center;
@@ -63,7 +63,7 @@
         redraw: function(text) {
           var el = document.getElementById(this.id())
           el.className = this.wall_status();
-          el.style.background = 'lightyellow';
+          el.style.background = '#FFD';
           if( text != '') {
             el.innerHTML = text;
           }
