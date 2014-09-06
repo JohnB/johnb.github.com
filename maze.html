@@ -46,20 +46,16 @@
       return {
         x: xpos,
         y: ypos,
-        top: true,
-        bottom: true,
-        left: true,
-        right: true,
+        sides: 'top right bottom left',
         id: function() {
           return ''+this.x+'_'+this.y;
         },
         wall_status: function() {
-          var status = '';
-          if( this.top    ) { status += 'top ';    }
-          if( this.right  ) { status += 'right ';  }
-          if( this.bottom ) { status += 'bottom '; }
-          if( this.left )   { status += 'left ';   }
+          var status = this.sides;
           return status;
+        },
+        remove_side: function(side) {
+          this.sides.replace(side,'');
         },
         to_html: function() {
           return '<td id="'+this.id()+'" style="" class="'+this.wall_status()+'">&nbsp;</td>\n';
@@ -78,18 +74,24 @@
         },
         discover_from: function(neighbor, timeout) {
           var this_obj = this;
+          var remove = function(side) {
+            var opposites = {
+              left: 'right',
+              right: 'left',
+              top: 'bottom',
+              bottom: 'top'
+            }
+            this_obj.remove_side(side);
+            neighbor.remove_side(opposites[side]);
+          }
           if( neighbor.x > this.x) {
-            this.right = false;
-            neighbor.left = false;
+            remove('right');
           } else if( neighbor.x < this.x) {
-            this.left = false;
-            neighbor.right = false;
+            remove('left');
           } else if( neighbor.y > this.y) {
-            this.bottom = false;
-            neighbor.top = false;
+            remove('bottom');
           } else if( neighbor.y < this.y) {
-            this.top = false;
-            neighbor.bottom = false;
+            remove('top');
           }
           setTimeout( function() { this_obj.redraw(''); }, timeout);
           setTimeout( function() { neighbor.redraw(''); }, timeout);
