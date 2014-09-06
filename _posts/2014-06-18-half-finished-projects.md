@@ -32,5 +32,5 @@ more up-to-date than the [github repo of the same name](https://github.com/JohnB
 - And my [maze game](http://johnb.github.com/maze.html) was fun to write (and [write about](https://johnb.github.io/2012/02/20/exploring-javascript-through-mazes.html) )
 but needs a bit of an update. I look back at it and it seems that my porting of 
 [original code](https://github.com/JackDanger/maze/blob/master/maze.rb) to javascript was 
-a bit too literal - there are some things you can do in javascript that you can't do as easily in ruby.
+a bit too literal - there are some improvements I can make. If they work, maybe I'll backport the fix to ruby and do a pull request.
 
