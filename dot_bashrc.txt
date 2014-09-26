@@ -1,4 +1,5 @@
 # Useful bash snippets and aliases
+# From http://johnb.github.io/dot_bashrc.txt
 #
 
 mkcd() {
