@@ -100,7 +100,7 @@ var Poker = {
 
   update_results: function(rounding_amount) {
     Poker.collect_results();
-    Poker.html_table += Poker.table_row(true,["Player", "Chips", "$exact", "$1", "$5"])
+    Poker.html_table += Poker.table_row(true,["Player", "Chips", "$Exact", "$1", "$5"])
 
     Poker.results_table.forEach( function(hash) {
       var rowdata = [
@@ -162,6 +162,8 @@ var Poker = {
         sums['to_nearest_five_dollars'] += hash['to_nearest_five_dollars'];
       }
     });
+    // Force to two decimal places
+    sums['exact'] = (1.0 * Math.round(hash['exact'] * 100)) / 100.00;
     Poker.results_table.push(dashes);
     Poker.results_table.push(sums);
     return Poker.results_table;
