@@ -163,7 +163,7 @@ var Poker = {
       }
     });
     // Force to two decimal places
-    sums['exact'] = (1.0 * Math.round(hash['exact'] * 100)) / 100.00;
+    sums['exact'] = (1.0 * Math.round(sums['exact'] * 100)) / 100.00;
     Poker.results_table.push(dashes);
     Poker.results_table.push(sums);
     return Poker.results_table;
