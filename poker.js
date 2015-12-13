@@ -126,12 +126,19 @@ var Poker = {
     Poker.weighting_factor = Poker.total_buyin / Poker.total_chips_without_stimulus;
 
     Poker.results_table = [];
+    var dashes = {
+      player:                   '-------',
+      chips:                    '-------',
+      exact:                    '-------',
+      to_nearest_one_dollar:    '-------',
+      to_nearest_five_dollars:  '-------',
+    };
     var sums = {
-      player: 'TOTALS: ',
-      chips: 0,
-      exact: 0.0,
-      to_nearest_one_dollar: 0.0,
-      to_nearest_five_dollars: 0.0,
+      player:                   'TOTALS: ',
+      chips:                    0,
+      exact:                    0.0,
+      to_nearest_one_dollar:    0.0,
+      to_nearest_five_dollars:  0.0,
     };
     Poker.usual_suspects.forEach( function(player) {
       var chips = Poker.players[player];
@@ -155,6 +162,7 @@ var Poker = {
         sums['to_nearest_five_dollars'] += hash['to_nearest_five_dollars'];
       }
     });
+    Poker.results_table.push(dashes);
     Poker.results_table.push(sums);
     return Poker.results_table;
   },
