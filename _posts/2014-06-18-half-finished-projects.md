@@ -1,6 +1,6 @@
 ---
 layout: default
-title: half-finished-projects
+title: Half Finished Projects
 ---
 # My Life In Repos(e)
 
@@ -12,7 +12,7 @@ each of them, even if I don't
 tweet about each success or failure
 or write a blog post about it.
 
-- [callback](https://github.com/JohnB/callback), a simple persistent proxy.
+- [callback](https://github.com/JohnB/callback) (status: broken) is a simple persistent proxy.
 It allowed me to learn that [meteor](http://meteor.com) does not work the
 same way Rails does (which is obvious in hindsight, but I didn't think of in
 the few minutes it took to put the app together). I think that client-side
@@ -30,7 +30,6 @@ and demo the location-tracking code from [follow the leader](https://github.com/
 of my older [poker calculator](http://johnb.github.io/poker.html) (which is
 more up-to-date than the [github repo of the same name](https://github.com/JohnB/poker_calculator))
 - And my [maze game](http://johnb.github.com/maze.html) was fun to write (and [write about](https://johnb.github.io/2012/02/20/exploring-javascript-through-mazes.html) )
-but needs a bit of an update. I look back at it and it seems that my porting of 
-[original code](https://github.com/JackDanger/maze/blob/master/maze.rb) to javascript was 
+but needs a bit of an update. I look back at it and it seems that my porting of
+[original code](https://github.com/JackDanger/maze/blob/master/maze.rb) to javascript was
 a bit too literal - there are some improvements I can make. If they work, maybe I'll backport the fix to ruby and do a pull request.
-
