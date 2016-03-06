@@ -2,7 +2,7 @@
 layout: default
 title: Openly Developing Another Toy App
 ---
-# Openly Developing Another Toy App
+# Openly Developing Another Toy App (App Step 0)
 My side projects usually involve some new technology, and some type of game. This one also includes blogging the entire process. As if anyone would want to know how it went - vs. how it was *intended* to go.
 
 First off, a bit about my philosophy for dealing with new (to me) tech and app development. Assuming there is nothing earth-shatteringly difficult about the basic functionality, it's just a matter of charting the path and finding the time to put one foot in front of the other.

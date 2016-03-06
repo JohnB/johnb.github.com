@@ -1,8 +1,8 @@
 ---
 layout: default
-title: App Step One - Common Crap
+title: App Step 1 - Common Crap
 ---
-# App Step One - Common Crap
+# App Step 1 - Common Crap
 Each app needs a way to add users, let them authenticate themselves, unsubscribe from emails, etc. Here are the "usual crap" screens I'm envisioning:
 
 * login dialogs for each service we want to support (Meteor makes this really easy)
@@ -52,5 +52,5 @@ However, I've definitely bit off way too much for this step, so I'll stop here w
 * do the rest of the steps originally planned:
   * invitation page
   * landing page
-  * unsubscribe
+  * unsubscribe (although, maybe this should wait until we actually *send* such emails)
 
