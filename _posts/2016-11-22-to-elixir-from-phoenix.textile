@@ -1,0 +1,26 @@
+# To Elixir from Phoenix
+
+The last time I switched my paid development work,
+from C++ to Ruby and Rails,
+I came at it from using Ruby scripting then later to Rails.
+So I had a good foundation in the language before diving
+into the "magic" of Rails.
+
+With Phoenix and Elixir, which may be my next development stack,
+I'm intentionally coming at it from Phoenix-is-kinda-Railish
+perspective. The MVC patterns of Rails have similarities - like
+a foreign language that kinda makes sense because you speak a
+related language. Where Ruby chains methods together with dots,
+Elixir uses the pipe-greater-than symbol ("|>").
+
+I have a vague understanding that
+```
+|> the things
+|> between
+|> pipes
+```
+
+are not just method calls,
+that they are actually full-fledged Erlang processes - but it works
+fine to just think of them as method calls instead of inter-process RPCs.
+
