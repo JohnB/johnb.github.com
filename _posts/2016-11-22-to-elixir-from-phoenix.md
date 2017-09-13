@@ -1,3 +1,7 @@
+---
+layout: default
+title: To Elixir from Phoenix
+---
 # To Elixir from Phoenix
 
 The last time I switched my paid development work,
