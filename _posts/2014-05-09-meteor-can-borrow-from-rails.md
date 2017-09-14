@@ -1,3 +1,7 @@
+---
+layout: default
+title: Meteor Can Borrow From Rails
+---
 # Meteor Can Borrow From Rails
 Update: A lot of this has been said (better!) by [Josh Owens](http://joshowens.me/how-to-organize-your-meteor-js-app/).
 
@@ -9,7 +13,7 @@ Some code will live on the server and some will live on the client. Any app of s
 
 My ideal directory structure would look something like this:
 
-```bash
+{% highlight ruby %}
   app-name
     .meteor/
     .gitignore - which specifies to ignore config/*
@@ -20,7 +24,7 @@ My ideal directory structure would look something like this:
         server/
         shared/
     tests/
-```
+{% endhighlight %}
 
 And in the ideal world there would be as few files as necessary in these dirs - they would all be leaf nodes in deeper directories.
 
