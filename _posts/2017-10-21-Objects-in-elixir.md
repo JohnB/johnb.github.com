@@ -57,4 +57,4 @@ A friend once pointed out that I only write blog posts when looking for
 a new position. Hmmm... fairly true. I'm currently looking for a position
 using elixir, or a company interested in making the transition from ruby to elixir.
 If you know of such a position, in the Bay Area or remote, please message
-me via [email](john.baylor@gmail.com) or [twitter](https://twitter.com/johnb).
+me at either john.baylor@gmail.com or on [twitter @JohnB](https://twitter.com/johnb).
