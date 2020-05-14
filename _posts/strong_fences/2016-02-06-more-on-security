@@ -1,0 +1,5 @@
+# Security Practices
+
+We don't store your login credential - we use OAuth to authenticate you with some other Open Authentication provider,
+such as gmail, twitter, facebook, or github.
+
