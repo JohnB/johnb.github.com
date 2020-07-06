@@ -15,7 +15,7 @@ so here is the process, which is a mix of
 * `git init .`
 * Update `.gitignore` to include `/.idea` (the Rubymine Dir) and 
 `/junk` (where I move random files that I'll likely never need again).
-* Update ` .tool-versions` with the in-use versions of erlang, elixir, and node.
+* Update `.tool-versions` with the in-use versions of erlang, elixir, and node.
 * `asdf install` to ensure we're using the correct versions.
 * Set `elixir_buildpack.config` to `erlang_version=23.0.1` and `elixir_version=1.10.3`
 * Set `phoenix_static_buildpack.config` to `compile=compile`
