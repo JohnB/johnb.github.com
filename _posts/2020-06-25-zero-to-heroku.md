@@ -26,13 +26,13 @@ so here is the process, which is a mix of
 * Tell git how to connect to Heroku: `heroku git:remote --app zero-to-heroku`
 * Tell heroku to use [the hashnuke buildpack](heroku buildpacks:set hashnuke/elixir):
 `heroku buildpacks:set hashnuke/elixir`
+* Tell it also to use the phoenix-static buildpack: `heroku buildpacks:add https://github.com/gjaldon/heroku-buildpack-phoenix-static.git` (
+it was a reminder in [this alchemist blog post](https://alchemist.camp/episodes/deploy-phoenix-heroku))
 * Add everything to git: `git add * .gitignore .tool-versions`
 * Add the necessary environment var: `heroku config:set SECRET_KEY_BASE=mix phx.gen.secret`
 (with back-ticks around `mix phx.gen.secret`)
 * Deploy with `git push heroku master`
 * Go to the newly-created URL 
 [https://zero-to-heroku.herokuapp.com/](https://zero-to-heroku.herokuapp.com/) for me
-* At this point, you should see the page but it will look funny since 
-the CSS and JS aren't available. Add them with:
-  *  ??? I seem to have missed this step.
+* At this point, you should see the page
 * Profit!
