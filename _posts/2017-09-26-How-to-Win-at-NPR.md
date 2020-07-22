@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: How to Win at NPR
 ---
 # How to Win at NPR

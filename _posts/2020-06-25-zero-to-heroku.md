@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Zero to Heroku
 ---
 I've just moved my [TwitterBot](https://twitter.com/todays_pizza)
