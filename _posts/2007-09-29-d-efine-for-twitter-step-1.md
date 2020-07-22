@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: d efine for Twitter
 ---
 # {{ page.title }}

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Half Finished Projects
 ---
 # My Life In Repos(e)

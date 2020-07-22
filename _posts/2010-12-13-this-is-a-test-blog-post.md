@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: This is a Test Blog Post
 ---
 # {{ page.title }}

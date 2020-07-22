@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: To Elixir from Phoenix
 ---
 # To Elixir from Phoenix

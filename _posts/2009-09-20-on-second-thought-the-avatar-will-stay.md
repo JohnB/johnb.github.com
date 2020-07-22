@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: On Second Thought, the Avatar Will Stay
 ---
 # {{ page.title }}

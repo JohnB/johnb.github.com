@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: We Are All Outsourcees
 ---
 # {{ page.title }}

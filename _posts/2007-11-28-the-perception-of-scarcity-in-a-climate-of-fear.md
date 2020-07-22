@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: The Perception of Scarcity in a Climate of Fear
 ---
 # {{ page.title }}

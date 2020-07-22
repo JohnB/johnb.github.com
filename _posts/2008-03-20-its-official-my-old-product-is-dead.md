@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Its Official: My Old Product is Dead"
 ---
 <p class="MsoNormal" style="text-align: center" align="center"><strong><span style="font-size: 10pt; font-family: 'Arial','sans-serif'"><center>Pay By Touch To Shut Down All Biometric Services Immediately </center></span></strong></p>

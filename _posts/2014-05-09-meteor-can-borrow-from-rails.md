@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Meteor Can Borrow From Rails
 ---
 # Meteor Can Borrow From Rails

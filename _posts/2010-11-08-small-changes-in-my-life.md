@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Small Changes in my Life
 ---
 # {{ page.title }}

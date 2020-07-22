@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Exploring Javascript Thru Mazes
 ---
 # {{ page.title }}

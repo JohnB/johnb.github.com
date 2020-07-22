@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Self-Modifying Code or Self-Creating Code?
 ---
 # {{ page.title }}

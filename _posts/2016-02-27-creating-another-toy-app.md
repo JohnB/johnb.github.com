@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Openly Developing Another Toy App
 ---
 # Openly Developing Another Toy App (App Step 0)

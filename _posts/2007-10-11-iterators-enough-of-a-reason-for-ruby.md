@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Iterators: Enough of a Reason for Ruby"
 ---
 # {{ page.title }}

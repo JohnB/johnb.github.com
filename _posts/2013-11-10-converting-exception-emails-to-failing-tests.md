@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Converting Exception Emails to Failing Tests
 ---
 # {{ page.title }}

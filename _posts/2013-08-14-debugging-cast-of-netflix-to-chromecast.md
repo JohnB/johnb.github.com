@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Debugging Cast of Netflix to ChromeCast
 ---
 # {{ page.title }}

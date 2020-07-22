@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Removing GitHub Collaborators
 ---
 # {{ page.title }}

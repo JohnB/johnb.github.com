@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Programming Puzzle
 ---
 # {{ page.title }}

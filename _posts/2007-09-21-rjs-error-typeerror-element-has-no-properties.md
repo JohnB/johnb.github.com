@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: rjs Error
 ---
 # {{ page.title }}

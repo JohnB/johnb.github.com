@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Faulty Sensory Awareness: Water Never Lies"
 ---
 # {{ page.title }}

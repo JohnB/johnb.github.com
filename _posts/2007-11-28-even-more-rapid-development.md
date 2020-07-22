@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Even More Rapid Development
 ---
 # {{ page.title }}

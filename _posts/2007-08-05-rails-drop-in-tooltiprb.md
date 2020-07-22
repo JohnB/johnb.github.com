@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Rails Drop-In: tooltip.rb"
 ---
 # {{ page.title }}

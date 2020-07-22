@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Last of a Generation
 ---
 # {{ page.title }}

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Objects in elixir
 ---
 # The Base ~~Class~~ Protocol: GenServer

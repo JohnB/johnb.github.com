@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Skate to Where the Puck Is Gonna Be
 ---
 # Skate to Where the Puck Is Gonna Be

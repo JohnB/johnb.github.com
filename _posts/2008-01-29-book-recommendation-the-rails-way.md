@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Book Recommendation: The Rails Way" 
 ---
 # {{ page.title }}

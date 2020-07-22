@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Another High Traffic Rails Site: CatalogChoice.org"
 ---
 # {{ page.title }}
