@@ -27,6 +27,8 @@ erlang 23.0.1
 * Use `asdf install` to ensure we're using the correct versions.
 * Create the app on Heroku with `heroku create zero-to-heroku`
 (note that one has to use dashes instead of underscores)
+* If app creation succeeds on Heroku then your server will be on `zero-to-heroku.herokuapp.com`
+so you can now add that host in the `config/prod.exs` file. Without it, the websocket connection will fail.
 * Tell git how to connect to Heroku: `heroku git:remote --app zero-to-heroku`
 * Configure Heroku application startup by creating `Procfile`
 that starts our server and tells it to ignore some stop signals: 
